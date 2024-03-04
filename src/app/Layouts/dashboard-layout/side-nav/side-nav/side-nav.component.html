@@ -1,0 +1,65 @@
+<div class="sideNav" [ngClass]="show? 'maxwidth': 'minwidth'">
+    <div class="">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-grey w-auto">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+             
+                
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li>
+                        <a href="#" data-bs-toggle="collapse" class="nav-link text-white px-0 align-middle">
+                            <i class="bi bi-speedometer2 fa-lg"></i><span *ngIf="show" class="ms-1 d-none d-sm-inline">DASHBOARD</span> </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a routerLink="/dashboard" class="nav-link text-white align-middle px-0">
+                            <i class="bi bi-tv fa-lg"></i> <span *ngIf="show" class="ms-1 d-none d-sm-inline">API</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link text-white px-0 align-middle">
+                            <i class="bi bi-chat-left-dots fa-lg"></i><span *ngIf="show" class="ms-1 d-none d-sm-inline">SEND SMS</span> </a>
+                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="#" class="nav-link px-0"> <span  *ngIf="show" class="d-none text-white  d-sm-inline">> Quick SMS</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span  *ngIf="show" class="d-none text-white  d-sm-inline">> Advance SMS</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span  *ngIf="show" class="d-none text-white  d-sm-inline">> Customize SMS</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span  *ngIf="show" class="d-none text-white  d-sm-inline">> Opt-in SMS</span></a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+
+                    <li>
+                        <a routerLink="/dashboard/employee-list" class="nav-link text-white px-0 align-middle">
+                            <i class="bi bi-whatsapp fa-lg"></i> <span *ngIf="show" class="ms-1 d-none d-sm-inline">WHATSAPP</span> </a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/employee-list" class="nav-link text-white px-0 align-middle">
+                            <i class="bi bi-table fa-lg"></i><span *ngIf="show" class="ms-1 d-none d-sm-inline">MANAGE ITEMS</span> </a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/employee-list" class="nav-link text-white px-0 align-middle">
+                            <i class="bi bi-bar-chart fa-lg"></i> <span *ngIf="show" class="ms-1 d-none d-sm-inline">VIEW REPORTS</span> </a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/employee-list" class="nav-link text-white px-0 align-middle">
+                            <i class="bi bi-gear-wide-connected fa-lg"></i> <span *ngIf="show" class="ms-1 d-none d-sm-inline">SETTINGS</span> </a>
+                    </li>
+                </ul>
+                <hr>
+             
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="btn btn-info hideshow w-auto" [ngClass]="show? 'maxwidth': 'minwidth'" (click)="toggelNav()"><i class="bi bi-list fa-lg"></i></div>
+    </div>
+</div>

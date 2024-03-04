@@ -1,0 +1,55 @@
+.mainBar{
+    height: 3.4rem;
+    background-color:#4d7496;
+    color: white;
+    position: relative;
+}
+
+
+.dropdown{
+    margin-left: 1rem;    
+}
+
+.navelemets{
+    position: absolute;
+    display: flex;
+    z-index: 1;
+}
+.navelemets::after,
+.navelemets::before{
+    content: '';
+    width: 0;
+    position: absolute;
+    z-index: -1;
+}
+.runtingText{
+    display: flex;
+    overflow: hidden;
+    margin-top: 0.5rem;
+    white-space:nowrap;
+    position: relative;
+    transform: translateX(100%);
+    animation: scroll 10s linear infinite;
+}
+
+
+ @keyframes scroll{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+} 
+
+.supportIcon{
+    margin-left:30rem;
+    margin-top: 1rem;
+}
+.emailIcon{
+    margin-left:1rem;
+    margin-top:1rem;
+}
+.dropdown-toggle::after {
+    display:none;
+}

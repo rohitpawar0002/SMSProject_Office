@@ -1,0 +1,9 @@
+
+<div class="d-flex">
+    <div class="routerOutlet" [ngClass]="sideNavService.sideNavClosed?'minwidth':'maxwidth'">
+        
+        <app-navbar></app-navbar>
+        <app-side-nav></app-side-nav>
+    </div>
+    <router-outlet></router-outlet>
+</div>

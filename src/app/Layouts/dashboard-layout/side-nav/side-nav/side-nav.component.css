@@ -1,0 +1,31 @@
+.bg-grey {
+    background-color: #343a40;
+  }
+  
+  .sideNav {
+    float: left;
+    overflow-y: auto;
+    height: 91vh;
+  }
+  
+  .maxwidth {
+    width: 90vw;
+    left:14vw
+  }
+  .minwidth {
+      width:23vw;
+      left:6vw
+  }
+  .hideshow {
+    position: absolute;
+    top: 0px;
+    margin-left: -0.3rem;
+    z-index: 999;
+  }
+  i:hover{
+    color: blue;
+    
+  }
+  span:hover{
+    color: blue;
+  }

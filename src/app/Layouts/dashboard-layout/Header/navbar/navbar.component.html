@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-dark mainBar">
+    <div class="navelemets">    
+    <a class="navbar-brand mt-1 mx-2" href="#">SMS123</a><i class="bi bi-list fa-lg mx-5 mt-3"></i>
+    <p class="mt-3">Date Time: {{CurrentDate | date :'M/d/yyyy-h:mm:ss a'}}</p>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Balance
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">SMS:577</a>
+            <a class="dropdown-item" href="#">MySMS: 0</a>
+            <a class="dropdown-item" href="#">Notification: 0</a>
+            <a class="dropdown-item" href="#">Whatsapp: 0</a>
+            <a class="dropdown-item" href="#">VoiceCall: 0</a>
+         </div>
+        </li>
+      </ul>
+     
+    </div>
+    <div class="supportIcon">
+        <div class="dropdown">
+            <div ngbDropdown class="d-inline-block">
+                <a href="javascript:;" class="d-flex align-items-center text-white text-decoration-none" id="dropdownBasic1" ngbDropdownToggle>
+                    <i class="bi bi-exclamation-triangle-fill fa-lg"></i>
+                </a>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <a class="dropdown-item" style="background-color: navy; color: white;">Support Informaton</a>
+                    <div class="dropdown-divider"></div>
+                    <li><a class="dropdown-item" href="" ><i class="bi bi-telephone-fill "></i> +91 8600999599</a></li>
+                    <li><a class="dropdown-item" href="" ><i class="bi bi-envelope-fill "></i> support@nuevastech.com</a></li>
+                    <li><a class="dropdown-item" href="" ><i class="bi bi-door-open-fill "></i> KYC Registration</a></li>
+                    <li><a class="dropdown-item" href="" ><i class="bi bi-card-list "></i> DLT Approved SenderID List</a></li>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="emailIcon">
+                  
+                <div ngbDropdown class="d-inline-block">
+                    <a href="javascript:;" class="d-flex align-items-center text-white" id="dropdownBasic1" ngbDropdownToggle>
+                        <i class="bi bi-envelope-exclamation-fill fa-lg"></i>
+                    </a>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <a class="dropdown-item" style="background-color: navy; color: white;">You have 0 new notifications</a>
+                        <div class="dropdown-divider"></div>
+                        <li><i class="bi bi-envelope-fill fa-lg mx-3"></i><a class="dropdown-item" href="" >From Admin</a></li>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" style="background-color:lightgray;">View all notifications</a>
+
+                    </div>
+                </div>                    
+      </div>
+      <i class="bi bi-person-fill fa-lg mt-3 mx-5"></i>
+</div> 
+ <!-- <div class="runtingText">
+    <p>lorem ajsd  iknsds ikniksofk jnjd jnsw jnfjs fjn ifjf o</p>
+</div>  -->
+</nav>
