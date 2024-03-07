@@ -5,11 +5,11 @@
   .sideNav {
     float: left;
     overflow-y: auto;
-    height: 91vh;
+    margin-top: -51rem;
   }
   
   .maxwidth {
-    width: 90vw;
+    width: 100vw;
     left:14vw
   }
   .minwidth {

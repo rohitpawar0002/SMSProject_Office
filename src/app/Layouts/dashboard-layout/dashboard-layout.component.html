@@ -1,9 +1,9 @@
 
+<app-navbar></app-navbar>
+<app-test></app-test>
 <div class="d-flex">
+    <app-side-nav></app-side-nav>
     <div class="routerOutlet" [ngClass]="sideNavService.sideNavClosed?'minwidth':'maxwidth'">
-        
-        <app-navbar></app-navbar>
-        <app-side-nav></app-side-nav>
+        <router-outlet></router-outlet>
     </div>
-    <router-outlet></router-outlet>
 </div>

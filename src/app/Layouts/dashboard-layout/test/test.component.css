@@ -1,6 +1,5 @@
 .alert{
-    width:70rem;
-    margin-left: 10rem;
+    width:50rem;
     height: 3.5rem;
     margin: auto;
 }
@@ -31,4 +30,7 @@ hr{
 }
 .btnTestSMS{
     margin-left: 1rem;
+}
+.container{
+    margin-left:15rem;
 }

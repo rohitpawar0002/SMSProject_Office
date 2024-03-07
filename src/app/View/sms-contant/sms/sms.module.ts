@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { SmsRoutingModule } from './sms-routing.module';
 import { SmsContantComponent } from './sms-contant.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { SmsContantComponent } from './sms-contant.component';
   ],
   imports: [
     CommonModule,
-    SmsRoutingModule
+    SmsRoutingModule,
+    HttpClientModule
+
   ]
 })
 export class SmsModule { }

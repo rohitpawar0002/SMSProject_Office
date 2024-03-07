@@ -1,7 +1,9 @@
 <div class="alert alert-primary mt-2" role="alert">
     This is a primary alert—check it out!
   </div>
-  <div class="container mt-4 d-flex">
+
+  <form [formGroup]="smsForm" (ngSubmit)="onSubmit()">
+      <div class="container mt-4 d-flex">
   <div class="card col-md-8">
     <div class="card-header" style="font-weight: bold; margin-right: -2%; margin-left:-2%;">
       <i class="bi bi-list mt-3"></i> Send SMS
@@ -9,27 +11,26 @@
     <div class="card-body">
       <div class="d-flex">
       <label class="col-md-2 control-lable mt-1">Sender ID</label>
-      <select class="form-select col-10 " aria-label="Default select example">
+      <select class="form-select col-10" formControlName="sender" aria-label="Default select example">
         <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+        <option value="1">NUEVAS</option>
+        <option value="2">TRKZIA</option>
       </select>
     </div>
       <hr>
-      <div class="d-flex">
+      <div class="d-flex ">
         <label class="col-md-2 control-lable">Template</label>
-        <select class="form-select col-10 " aria-label="Default select example">
-          <option selected>Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+        <select class="form-select col-10" formControlName="templateid" aria-label="Default select example">
+          <!-- <option selected>Open this select menu</option>
+          <option value="1">Your My SMS verification Code id {{#var#} Do not share this code with others Team Nuevas</option>
+          <option value="2">Dear User your OTP is {{#var#} Kindly use OTP to validate your Registration. Team Trackzia</option>
+          <option value="3">Dear {{#var#} , Your Complaint with Complaint Id: {#var#} has Been Resolve Kindly Share OTP, The OTP is {#var#} \n From Nuevas</option> -->
         </select>
       </div>
       <hr>
       <div class="d-flex">
         <label class="col-md-2 control-lable">Mobile No</label>
-        <textarea class="form-control col-10 " id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control col-10" formControlName="mob" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
       <div class="form-check check1">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -51,7 +52,7 @@
       <div class="d-flex mt-5">
       
         <label class="col-md-2 control-lable">Message</label>
-        <textarea class="form-control col-10 " id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control col-10" formControlName="msg" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
       <div class="badge2">      
         <span class="badge badge-secondary">Count:0 Text:0</span>
@@ -76,7 +77,7 @@
     <label class="col-md-2 control-lable">Test SMS</label>
     <textarea class="form-control col-8" placeholder="Enter the mobile number" id="exampleFormControlTextarea1" rows="2"></textarea>
     <div class="btnTestSMS">
-      <button class="btn btn-warning">Test SMS</button>
+      <button (click)="onSubmit()" class="btn btn-warning">Test SMS</button>
     </div>
   </div>
   </div>
@@ -99,5 +100,7 @@
 </div>
 
 </div>
+</form>
+
 
 

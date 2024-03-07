@@ -20,27 +20,31 @@
     content: '';
     width: 0;
     position: absolute;
-    z-index: -1;
+    z-index: 1;
 }
-.runtingText{
+/* .runtingText{
     display: flex;
     overflow: hidden;
     margin-top: 0.5rem;
     white-space:nowrap;
     position: relative;
     transform: translateX(100%);
-    animation: scroll 10s linear infinite;
+    animation: scroll 25s linear infinite;
+} */
+.runtingText{
+    margin-left: 35rem;
+    margin-top: 1rem;
 }
 
 
- @keyframes scroll{
+ /* @keyframes scroll{
     0%{
-        transform: translateX(100%);
+        transform: translateX(170%);
     }
     100%{
-        transform: translateX(-100%);
+        transform: translateX(-80%);
     }
-} 
+}  */
 
 .supportIcon{
     margin-left:30rem;
