@@ -12,19 +12,19 @@
       <div class="d-flex">
       <label class="col-md-2 control-lable mt-1">Sender ID</label>
       <select class="form-select col-10" formControlName="sender" aria-label="Default select example">
-        <option selected>Open this select menu</option>
-        <option value="1">NUEVAS</option>
+        <option selected="">Open this select menu</option>
+        <option value="NUEVAS">NUEVAS</option>
         <option value="2">TRKZIA</option>
       </select>
     </div>
       <hr>
       <div class="d-flex ">
         <label class="col-md-2 control-lable">Template</label>
-        <select class="form-select col-10" formControlName="templateid" aria-label="Default select example">
-          <!-- <option selected>Open this select menu</option>
-          <option value="1">Your My SMS verification Code id {{#var#} Do not share this code with others Team Nuevas</option>
-          <option value="2">Dear User your OTP is {{#var#} Kindly use OTP to validate your Registration. Team Trackzia</option>
-          <option value="3">Dear {{#var#} , Your Complaint with Complaint Id: {#var#} has Been Resolve Kindly Share OTP, The OTP is {#var#} \n From Nuevas</option> -->
+        <select class="form-select col-10" formControlName="templateid" (change)="chnagevalue()" aria-label="Default select example">
+          <option selected>Open this select menu</option>
+          <option value="1707161891201501738">Your My SMS verification Code id . Do not share this code with others Team Nuevas<option>
+          <option value="2">Dear User your OTP is 1234 Kindly use OTP to validate your Registration. Team Trackzia</option>
+          <option value="3">Dear 1234 , Your Complaint with Complaint Id: 1234 has Been Resolve Kindly Share OTP, The OTP is 1234 \n From Nuevas</option>
         </select>
       </div>
       <hr>
@@ -52,7 +52,7 @@
       <div class="d-flex mt-5">
       
         <label class="col-md-2 control-lable">Message</label>
-        <textarea class="form-control col-10" formControlName="msg" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control col-10"  formControlName="msg" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
       <div class="badge2">      
         <span class="badge badge-secondary">Count:0 Text:0</span>
@@ -101,6 +101,4 @@
 
 </div>
 </form>
-
-
 

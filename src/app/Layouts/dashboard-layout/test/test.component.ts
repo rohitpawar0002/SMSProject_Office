@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ServicesService } from 'src/app/Services/services.service';
 
 @Component({
@@ -9,26 +9,39 @@ import { ServicesService } from 'src/app/Services/services.service';
 })
 export class TestComponent {
 
-//  smsForm!:FormGroup;
+smsForm!:FormGroup;
+display:any
 
   constructor(private service:ServicesService,private formbuilder:FormBuilder){}
 
-  smsForm=this.formbuilder.group({
-    username:["demotr"],
-    password:["tr@1234"],
-    sender:["NUEVAS"],
-    templateid:["1707161891201501738"],
-    mob:["9730023006"],
-    msg:["Your My SMS verification Code id . Do not share this code with others Team Nuevas"],
-    coding:["1"]
+  ngOnInit(){
+    this.smsForm=this.formbuilder.group({
+      username:["demotr"],
+      password:["tr@1234"],
+      sender:[''],
+      templateid:[''],
+      mob:[''],
+      msg:[''],
+      coding:['1']
+  
+    });   
+  
+  }
 
-  });
- 
+    chnagevalue(){
+      this.smsForm.patchValue({
+        msg:'Your My SMS verification Code id . Do not share this code with others Team Nuevas'
+      })
+      // this.smsForm.controls['templateid'].value
+    }
+  
+
 
   onSubmit(){
     debugger;
       this.service.getsms(this.smsForm.value).subscribe((res:any)=>{
         console.log(res);
+        console.log(this.smsForm.value);        
       });
     }
 }

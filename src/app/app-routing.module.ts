@@ -6,7 +6,7 @@ import { SideNavComponent } from './Layouts/dashboard-layout/side-nav/side-nav/s
 import { SmsContantComponent } from './View/sms-contant/sms/sms-contant.component';
 
 const routes: Routes = [
-  {path:'',component:DashboardLayoutComponent,
+  {path:'',pathMatch:'full',component:DashboardLayoutComponent,
   children:[
     {
       path:'',

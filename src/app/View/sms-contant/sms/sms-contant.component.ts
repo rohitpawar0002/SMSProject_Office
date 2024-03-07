@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class SmsContantComponent {
 
+  ngOnInit(){
+    console.log('hello');
+    
+  }
 }

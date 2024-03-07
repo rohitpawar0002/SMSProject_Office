@@ -4,6 +4,7 @@ import { SmsContantComponent } from './sms-contant.component';
 
 const routes: Routes = [
   {path:'',pathMatch:'full',component:SmsContantComponent}
+  
 ];
 
 @NgModule({
