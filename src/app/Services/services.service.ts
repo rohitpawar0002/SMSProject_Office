@@ -8,9 +8,16 @@ export class ServicesService {
 
   constructor(private http:HttpClient) { }
 
-  getsms(data:any){
-    
+  balanceCount:any=100;
+localcount:any;
+
+
+
+
+getsms(data:any){
+  localStorage.setItem('token2',JSON.stringify(this.balanceCount))
    return this.http.get('http://api.sms123.in/api/QuickSend/QuickSend?username='+data.username+'&password='+data.password+
    '&mob='+data.mob+'&msg='+data.msg+'&sender='+data.sender+'&templateid='+data.templateid+'&coding='+data.coding,data)
+
   }
 }

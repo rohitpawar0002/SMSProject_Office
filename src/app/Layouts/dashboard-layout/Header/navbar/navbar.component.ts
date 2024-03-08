@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
+import { ServicesService } from 'src/app/Services/services.service';
 import { SidenavService } from 'src/app/Services/sidenav.service';
 
 @Component({
@@ -10,12 +11,14 @@ import { SidenavService } from 'src/app/Services/sidenav.service';
 export class NavbarComponent implements OnInit{
  
   CurrentDate=new Date();
-  constructor(){
+  constructor(private smsservice:ServicesService)
+  {
     setInterval(() => {
       this.CurrentDate = new Date()
     }, 1000)
   }
 
+  count:any=this.smsservice.balanceCount
   ngOnInit(){
   }
 

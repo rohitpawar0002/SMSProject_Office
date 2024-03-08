@@ -19,7 +19,7 @@
       <hr>
       <div class="d-flex ">
         <label class="col-md-2 control-lable">Template</label>
-        <select class="form-select col-10" formControlName="templateid" (change)="changevalue()"  [ngClass]="{'is-invalid':submitted && smsForm.get('templateid')?.errors}" aria-label="Default select example">
+        <select class="form-select col-10" formControlName="templateid" (change)="changevalue($event)"  [ngClass]="{'is-invalid':submitted && smsForm.get('templateid')?.errors}" aria-label="Default select example">
           <option value="" selected>Open this select menu</option>
           <option *ngFor="let templateitem of templateArray" [value]="templateitem.value">{{templateitem.key}}</option>
          
