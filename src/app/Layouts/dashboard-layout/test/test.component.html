@@ -31,7 +31,7 @@
         <textarea class="form-control col-10" formControlName="mob" [ngClass]="{'is-invalid':submitted && smsForm.get('mob')?.errors}" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
       <div class="form-check check1">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <input class="form-check-input" type="checkbox" (click)="checkBoxFun()" value="" formControlName="clearChekBox" id="flexCheckDefault">
         <label class="form-check-label" for="flexCheckDefault">
           Clear list
         </label>
@@ -50,10 +50,10 @@
       <div class="d-flex mt-5">
       
         <label class="col-md-2 control-lable">Message</label>
-        <textarea class="form-control col-10"  formControlName="msg"  [ngClass]="{'is-invalid':submitted && smsForm.get('msg')?.errors}"  id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control col-10" (mouseover)="onMouseOver()" formControlName="msg"  [ngClass]="{'is-invalid':submitted && smsForm.get('msg')?.errors}"  id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
       <div class="badge2">      
-        <span class="badge badge-secondary">Count:0 Text:0</span>
+        <span class="badge badge-secondary">Count:{{kk}} Text:{{limit}}</span>
       </div>
       <div class="badge3">      
         <span class="badge badge-primary">Total Cradit Charge:0</span>

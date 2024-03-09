@@ -8,13 +8,17 @@ import { SidenavService } from 'src/app/Services/sidenav.service';
 })
 export class SideNavComponent {
 
-
+  darkShow:boolean=false;
   constructor(private sidenavService:SidenavService){}
   
   show: boolean = true;
   toggelNav() {
     this.show = !this.show;
     this.sidenavService.sideNavClosed= this.show;
+    }
+
+    darkFun(){
+      this.darkShow=true;
     }
 
 

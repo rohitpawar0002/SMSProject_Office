@@ -9,6 +9,8 @@ export class ServicesService {
   constructor(private http:HttpClient) { }
 
   balanceCount:any=100;
+
+  
 localcount:any;
 
 

@@ -2,12 +2,18 @@
     height: 3.4rem;
     background-color:#4d7496;
     color: white;
-    position: relative;
 }
 
+.time{
+    margin-top: 1rem;
+}
 
-.dropdown{
-    margin-left: 1rem;    
+.smsHeading{
+    margin-left: 3rem;
+    margin-top:0.5rem;
+}
+.dropdownBalance{
+    margin-left: 3rem;    
 }
 
 .navelemets{
@@ -32,7 +38,7 @@
     animation: scroll 25s linear infinite;
 } */
 .runtingText{
-    margin-left: 35rem;
+    margin-left: 40rem;
     margin-top: 1rem;
 }
 
@@ -47,13 +53,18 @@
 }  */
 
 .supportIcon{
-    margin-left:30rem;
+    margin-left:35rem;
     margin-top: 1rem;
 }
 .emailIcon{
-    margin-left:1rem;
+    margin-left:2rem;
     margin-top:1rem;
 }
 .dropdown-toggle::after {
     display:none;
+}
+
+.personlogo{
+    margin-left:2rem;
+    margin-top: 1rem;
 }

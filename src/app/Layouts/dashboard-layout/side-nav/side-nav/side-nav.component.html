@@ -1,8 +1,7 @@
-<div class="sideNav" [ngClass]="show? 'maxwidth': 'minwidth'">
+<div class="sideNav" id="mainsidebar" [ngClass]="show? 'maxwidth': 'minwidth'">
     <div class="">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-grey w-auto">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-             
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white vh-100">
                 
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li>
@@ -54,6 +53,22 @@
                             <i class="bi bi-gear-wide-connected "></i> <span *ngIf="show" class="ms-1 d-none d-sm-inline">SETTINGS</span> </a>
                     </li>
                 </ul>
+
+                <div class="d-flex thimdark">
+                    <div class="form-check mx-1">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            <i class="bi bi-sun me-1"></i>Bright
+                        </label>
+                      </div>
+                      <div class="form-check mx-n3">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            <i class="bi bi-moon fa-xs me-1"></i>Dark
+                        </label>
+                      </div>                <!-- <p class="thimdark" (click)="darkFun()" [ngClass]="darkShow? 'darkcolor': 'minwidth'" >Dark <i class="bi bi-sun"></i></p>  <p class="thimbright mx-4">Bright <i class="bi bi-moon fa-xs    "></i></p> -->
+                 </div>
+
                 <hr>
              
             </div>
@@ -62,4 +77,5 @@
     <div>
         <!-- <div class="btn btn-info hideshow w-auto" [ngClass]="show? 'maxwidth': 'minwidth'" (click)="toggelNav()"><i class="bi bi-list fa-lg"></i></div> -->
     </div>
+
 </div>

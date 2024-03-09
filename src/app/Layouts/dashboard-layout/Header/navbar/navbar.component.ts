@@ -11,6 +11,9 @@ import { SidenavService } from 'src/app/Services/sidenav.service';
 export class NavbarComponent implements OnInit{
  
   CurrentDate=new Date();
+  count:any
+  count2:any
+
   constructor(private smsservice:ServicesService)
   {
     setInterval(() => {
@@ -18,8 +21,17 @@ export class NavbarComponent implements OnInit{
     }, 1000)
   }
 
-  count:any=this.smsservice.balanceCount
+
+  
   ngOnInit(){
+    this.count=new Promise((resolve,reject)=>{
+      resolve(this.smsservice.balanceCount)
+    })
+
+
+    
   }
+
+
 
 }
