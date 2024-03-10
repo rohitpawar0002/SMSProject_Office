@@ -1,63 +1,74 @@
-.bg-grey {
-    background-color: #343a40;
-  }
-  
-  .sideNav {
-    float: left;
-    overflow-y: auto;
-    margin-top: -51.1rem;
-    
-  }
-  
-  .maxwidth {
-    width: 100vw;
-    left:14vw
-  }
-  .minwidth {
-      width:23vw;
-      left:6vw
-  }
-  .hideshow {
-    position: absolute;
-    top: 0px;
-    margin-left: -0.3rem;
-    z-index: 999;
-  }
-  i:hover{
-    color: blue;
-    
-  }
-  span:hover{
-    color: blue;
-  }
-  .thimdark{
-    margin-bottom:5rem;
-    margin-left: -2rem;
-    font-size: 1rem;
-  }
-  /* .thimbright{
-    
-  } */
 
-  input[type="radio"]{
-    display: none;
-  }
-label{
-  position:relative;
+
+.sideNav {
+  float: left;
+  height: 92vh;
+  background-color: #343a40;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+.sideNav a {
+color: white;
+
+}
+.darkcolor{
+  background-color: #343a40;
+  width: 15vw;
+
+}
+.darkcolor a{
+  color: white;
+}
+.brightcolor{
+  background-color:#F9F9F9;
+  width: 15vw;
+
+}
+.brightcolor a{
+  color: black;
+
+}
+
+.maxwidth {
+  width: 15vw;
+}
+.minwidth {
+  width:4vw;
+}
+.hideshow {
+  position: absolute;
+  top: 0px;
+  /* margin-left: -0.3rem; */
+  z-index: 999;
+}
+i:hover {
+  color: blue;
+}
+span:hover {
+  color: blue;
+}
+
+input[type="radio"] {
+  display: none;
+}
+label {
+  position: relative;
   color: #01cc65;
-  font-family: 'Poppins',sans-serif;
+  font-family: "Poppins", sans-serif;
   border-radius: 5px;
   display: flex;
   align-items: center;
-  padding:0.3rem;
-  cursor: pointer;;
+  padding: 0.3rem;
+  cursor: pointer;
 }
-label:before{
-    margin-left: -1rem;
+label:before {
+  margin-left: -1rem;
 }
 
-input[type="radio"]:checked + label{
-  background-color: #01cc65;
+input[type="radio"]:checked + label {
+    background-color:#4d7496;
   color: white;
 }
 

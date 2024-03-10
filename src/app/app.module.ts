@@ -8,7 +8,6 @@ import { DashboardLayoutComponent } from './Layouts/dashboard-layout/dashboard-l
 import { NavbarComponent } from './Layouts/dashboard-layout/Header/navbar/navbar.component';
 import { SideNavComponent } from './Layouts/dashboard-layout/side-nav/side-nav/side-nav.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TestComponent } from './Layouts/dashboard-layout/test/test.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardLayoutComponent,
     NavbarComponent,
     SideNavComponent,
-    TestComponent,
     
   ],
   imports: [

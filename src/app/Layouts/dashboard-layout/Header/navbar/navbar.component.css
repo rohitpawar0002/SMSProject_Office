@@ -1,19 +1,38 @@
 .mainBar{
-    height: 3.4rem;
+    height: 8vh;
     background-color:#4d7496;
     color: white;
 }
 
 .time{
     margin-top: 1rem;
+    font-size: 14px;
 }
 
 .smsHeading{
     margin-left: 3rem;
     margin-top:0.5rem;
+    font-size: 18px;
+    
+}
+.smsHeading i{
+    cursor: pointer;
 }
 .dropdownBalance{
-    margin-left: 3rem;    
+    margin-left:2rem;  
+    font-size: 14px;  
+}
+.balanceitems{
+    margin-left:30rem;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    font-size: 14px;
+
+
+}
+.balanceitems a:hover{
+    background-color:#4d7496;
+    color: white;
 }
 
 .navelemets{
@@ -28,43 +47,56 @@
     position: absolute;
     z-index: 1;
 }
-/* .runtingText{
-    display: flex;
-    overflow: hidden;
-    margin-top: 0.5rem;
-    white-space:nowrap;
-    position: relative;
-    transform: translateX(100%);
-    animation: scroll 25s linear infinite;
-} */
+
 .runtingText{
     margin-left: 40rem;
     margin-top: 1rem;
+    font-size: 15px;
+
 }
 
-
- /* @keyframes scroll{
-    0%{
-        transform: translateX(170%);
-    }
-    100%{
-        transform: translateX(-80%);
-    }
-}  */
-
+.dropdown-toggle::after {
+    display:none;
+}
 .supportIcon{
     margin-left:35rem;
     margin-top: 1rem;
+    cursor: pointer;
+    font-size: 14px;
+
+}
+.supportIconItems {
+    margin-top: 1rem;
+    margin-left:-6rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    font-size: 14px;
+
+}
+.supportIconItems a:hover {
+    background-color:#4d7496;
+    color: white;
 }
 .emailIcon{
     margin-left:2rem;
     margin-top:1rem;
+    cursor: pointer;
+    font-size: 14px;
+
 }
-.dropdown-toggle::after {
-    display:none;
+.emailIconitems{
+    margin-left:-6rem;
+    margin-top: 1rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    font-size: 14px;
 }
 
+.emailIconitems a:hover{
+    background-color:#4d7496;
+    color: white;
+}
 .personlogo{
     margin-left:2rem;
-    margin-top: 1rem;
+    margin-top: 0.6rem;
+    font-size: 20px;
+
 }

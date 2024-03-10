@@ -6,32 +6,38 @@ import { SidenavService } from 'src/app/Services/sidenav.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent implements OnInit{
- 
-  CurrentDate=new Date();
-  count:any
-  count2:any
+export class NavbarComponent implements OnInit {
+  CurrentDate = new Date();
+  count: any;
+  show: boolean = false;
+  count2: any;
 
-  constructor(private smsservice:ServicesService)
-  {
+  constructor( private smsservice: ServicesService,  private sideNavService: SidenavService
+  ) {
     setInterval(() => {
-      this.CurrentDate = new Date()
-    }, 1000)
+      this.CurrentDate = new Date();
+    }, 1000);
   }
 
-
-  
-  ngOnInit(){
-    this.count=new Promise((resolve,reject)=>{
-      resolve(this.smsservice.balanceCount)
-    })
-
+  ngOnInit() {
+    this.smsservice.localdata();
 
     
+      // this.count = new Promise((resolve, reject) => {
+    //   resolve(this.smsservice.balanceCount);
+    // });
   }
+  loadcount(){
+    this.count=this.smsservice.balanceCount
+    console.log('count',this.count);
+    }
 
 
+  toggelNav() {
+    this.show = !this.show;
+    this.sideNavService.showNav.next(this.show);
+  }
 
 }

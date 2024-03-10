@@ -1,0 +1,18 @@
+img{
+    height:92vh;
+    width: 85vw; 
+ }
+ .minwidth{
+    width: 85vw; 
+ }
+ .maxminwidth img{
+    width: 96vw;
+ }
+    
+    .maintext {
+        position: absolute;
+        top: 50%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }

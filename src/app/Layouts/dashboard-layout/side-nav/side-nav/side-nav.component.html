@@ -1,34 +1,34 @@
-<div class="sideNav" id="mainsidebar" [ngClass]="show? 'maxwidth': 'minwidth'">
+<div class="sideNav" [ngClass]="show? 'maxwidth': 'minwidth'"  [ngClass]="thimShow? 'darkcolor':'brightcolor'"  >
     <div class="">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-grey w-auto">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white vh-100">
+        <div class="px-sm-2 px-0 w-auto">
+            <div class="d-flex flex-column align-items-center align-items-sm-start ps-1 pt-2">
                 
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li>
-                        <a href="#" data-bs-toggle="collapse" class="nav-link text-white px-0 align-middle">
+                        <a routerLink="" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                             <i class="bi bi-speedometer2 "></i><span *ngIf="show" class="ms-1 d-none d-sm-inline">DASHBOARD</span> </a>
                     </li>
 
                     <li class="nav-item">
-                        <a routerLink="/dashboard" class="nav-link text-white align-middle px-0">
+                        <a routerLink="/dashboard" class="nav-link align-middle px-0">
                             <i class="bi bi-tv "></i> <span *ngIf="show" class="ms-1 d-none d-sm-inline">API</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link text-white px-0 align-middle">
+                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                             <i class="bi bi-chat-left-dots "></i><span *ngIf="show" class="ms-1 d-none d-sm-inline">SEND SMS</span> </a>
-                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                        <ul class="collapse show nav flex-column ms-1" *ngIf="show" id="submenu1" data-bs-parent="#menu">
                             <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span  *ngIf="show" class="d-none text-white  d-sm-inline">> Quick SMS</span></a>
+                                <a href="smssend" class="nav-link px-0"> <span  *ngIf="show" class="d-none   d-sm-inline">> Quick SMS</span></a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0"> <span  *ngIf="show" class="d-none text-white  d-sm-inline">> Advance SMS</span></a>
+                                <a class="nav-link px-0"> <span  *ngIf="show" class="d-none   d-sm-inline">> Advance SMS</span></a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0"> <span  *ngIf="show" class="d-none text-white  d-sm-inline">> Customize SMS</span></a>
+                                <a class="nav-link px-0"> <span  *ngIf="show" class="d-none   d-sm-inline">> Customize SMS</span></a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0"> <span  *ngIf="show" class="d-none text-white  d-sm-inline">> Opt-in SMS</span></a>
+                                <a class="nav-link px-0"> <span  *ngIf="show" class="d-none   d-sm-inline">> Opt-in SMS</span></a>
                             </li>
 
                         </ul>
@@ -37,34 +37,37 @@
 
 
                     <li>
-                        <a routerLink="/dashboard/employee-list" class="nav-link text-white px-0 align-middle">
+                        <a class="nav-link px-0 align-middle">
                             <i class="bi bi-whatsapp "></i> <span *ngIf="show" class="ms-1 d-none d-sm-inline">WHATSAPP</span> </a>
                     </li>
                     <li>
-                        <a routerLink="/dashboard/employee-list" class="nav-link text-white px-0 align-middle">
+                        <a class="nav-link px-0 align-middle">
                             <i class="bi bi-table "></i><span *ngIf="show" class="ms-1 d-none d-sm-inline">MANAGE ITEMS</span> </a>
                     </li>
                     <li>
-                        <a routerLink="/dashboard/employee-list" class="nav-link text-white px-0 align-middle">
+                        <a class="nav-link px-0 align-middle">
                             <i class="bi bi-bar-chart "></i> <span *ngIf="show" class="ms-1 d-none d-sm-inline">VIEW REPORTS</span> </a>
                     </li>
                     <li>
-                        <a routerLink="/dashboard/employee-list" class="nav-link text-white px-0 align-middle">
+                        <a class="nav-link px-0 align-middle">
                             <i class="bi bi-gear-wide-connected "></i> <span *ngIf="show" class="ms-1 d-none d-sm-inline">SETTINGS</span> </a>
                     </li>
                 </ul>
 
-                <div class="d-flex thimdark">
-                    <div class="form-check mx-1">
+
+     
+
+                <div class="thimdark mt-3" [class.d-flex]="show">
+                    <div class="form-check ps-0">
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                         <label class="form-check-label" for="flexRadioDefault1">
-                            <i class="bi bi-sun me-1"></i>Bright
+                            <div  (click)="thimChange(false)"><i class="bi bi-sun me-1"></i><span *ngIf="show">Bright</span> </div>
                         </label>
                       </div>
-                      <div class="form-check mx-n3">
+                      <div class="form-check ps-1">
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
                         <label class="form-check-label" for="flexRadioDefault2">
-                            <i class="bi bi-moon fa-xs me-1"></i>Dark
+                          <div  (click)="thimChange(true)" ><i class="bi bi-moon fa-xs me-1"></i> <span *ngIf="show">Dark</span></div>  
                         </label>
                       </div>                <!-- <p class="thimdark" (click)="darkFun()" [ngClass]="darkShow? 'darkcolor': 'minwidth'" >Dark <i class="bi bi-sun"></i></p>  <p class="thimbright mx-4">Bright <i class="bi bi-moon fa-xs    "></i></p> -->
                  </div>

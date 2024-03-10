@@ -1,11 +1,27 @@
-.alert{
-    width:70rem;
-    margin-left: 10rem;
-    height: 3.5rem;
-    margin: auto;
+.alert1{
+    margin-top: 1vh;
+    width:77vw ;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    font-size: 14px;
 }
+.alert{
+    background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+}
+/* .container{
+margin-left:1rem;
+} */
+.maxMain{
+    width: 96vw;
+}
+.minMaim{
+width: 85vw;
+}
+
 .check1{
-margin-left:37rem;}
+margin-left:37rem;
+font-size: 14px;
+}
+
 .badge1{
     margin-top: -1.4rem;
     margin-left:7rem;
@@ -18,17 +34,69 @@ hr{
     margin-left:8rem;
     margin-bottom: -3rem;
     margin-top:1rem;
+
 }
 .badge2{
     margin-left:7rem;
 }
 .badge3{
-    margin-left: 34rem;
+    margin-left: 32rem;
     margin-top: -1.5rem;
 }
 .btnConfirm{
     margin-left:30rem;
+    font-size: 14px;
+
 }
 .btnTestSMS{
     margin-left: 1rem;
+    font-size: 14px;
+
 }
+.bigbox{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    font-size: 14px;
+
+}
+
+.subTable{
+    height: 16rem;
+    margin-left:2rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    font-size: 14px;
+}
+
+.subTable3{
+margin-top: 18rem;
+margin-left: -17.4rem;
+height: 10rem;
+box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+font-size: 14px;
+}
+select{
+    font-size: 14px;
+
+}
+.maxwidth2{
+    height: 8rem;
+}
+.minwidth2{
+    height: 2.6rem;
+}
+.insidecard{
+    margin-right: -1rem;
+    margin-left: -1rem;
+
+}
+.maxwidth{
+    height: 16rem;
+}
+.minwidth{
+    height: 2.6rem;
+}
+.card-header{
+    /* background-color:     rgb(248,215,218); */
+    background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);    
+
+}
+

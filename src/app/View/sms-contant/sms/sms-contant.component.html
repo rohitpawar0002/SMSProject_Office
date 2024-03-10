@@ -1,103 +1,153 @@
-<div class="alert alert-primary mt-2" role="alert">
-    This is a primary alert—check it out!
-  </div>
-  <div class="container mt-4 d-flex">
-  <div class="card col-md-8">
-    <div class="card-header" style="font-weight: bold; margin-right: -2%; margin-left:-2%;">
-      <i class="bi bi-list mt-3"></i> Send SMS
-    </div>
-    <div class="card-body">
-      <div class="d-flex">
-      <label class="col-md-2 control-lable mt-1">Sender ID</label>
-      <select class="form-select col-10 " aria-label="Default select example">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-    </div>
-      <hr>
-      <div class="d-flex">
-        <label class="col-md-2 control-lable">Template</label>
-        <select class="form-select col-10 " aria-label="Default select example">
-          <option selected>Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-      </div>
-      <hr>
-      <div class="d-flex">
-        <label class="col-md-2 control-lable">Mobile No</label>
-        <textarea class="form-control col-10 " id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
-      <div class="form-check check1">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-          Clear list
-        </label>
-      </div>
-      <div class="badge1">      
-        <span class="badge badge-secondary">Mobile No Count:0</span>
-      </div>
-      <hr>
-      <div class="alert alert-primary col-12" role="alert">
-        One variable = 30 characters only. Enter the number of characters accordingly.                                    
-      </div>
-      <div class="form-check check2">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <label for="ContentPlaceHolder1_chkUnicode" style="font-weight: bold;">Unicode (Hindi, Marathi SMS)</label>        
-      </div>
-      <div class="d-flex mt-5">
-      
-        <label class="col-md-2 control-lable">Message</label>
-        <textarea class="form-control col-10 " id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
-      <div class="badge2">      
-        <span class="badge badge-secondary">Count:0 Text:0</span>
-      </div>
-      <div class="badge3">      
-        <span class="badge badge-primary">Total Cradit Charge:0</span>
-      </div>
-  </div>
-  <div class="card-footer" style="margin-right: -2%; margin-left:-2%;">
-    <div class="d-flex">
-    <div class="form-check d-flex">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label for="ContentPlaceHolder1_chkUnicode" style="font-weight: bold;">Schedule</label>        
-       </div>
-       
-    <div class="btnConfirm">
-          <button class="btn btn-primary">Confirm</button>
-     </div>
-    </div>
-  <hr style="margin-right: -2%; margin-left:-2%;">
-  <div class="d-flex">      
-    <label class="col-md-2 control-lable">Test SMS</label>
-    <textarea class="form-control col-8" placeholder="Enter the mobile number" id="exampleFormControlTextarea1" rows="2"></textarea>
-    <div class="btnTestSMS">
-      <button class="btn btn-warning">Test SMS</button>
-    </div>
-  </div>
-  </div>
+<div class="container" [ngClass]="showMain? 'minMaim':'maxMain'">
+<div class="alert alert1 alert-primary" role="alert">
+  This is a primary alert—check it out!
 </div>
 
-
-<div class="card text-center col-md-3 mx-3">
-  <div class="card-header" style="font-weight: bold; margin-right: -2%; margin-left:-2%;">
- 
-    <i class="bi bi-list mt-3"></i> Select Option
+<form [formGroup]="smsForm" (ngSubmit)="onSubmit()">
+  <div class="d-flex">
+<div class="card col-md-8 bigbox">
+  <div class="card-header mx-n3" style="font-weight: bold; margin-right: -2%; margin-left:-2%;">
+    <i class="bi bi-list"></i> Send SMS
   </div>
   <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="d-flex">
+    <label class="col-md-2 control-lable mt-1">Sender ID</label>
+    <select class="form-select col-10" formControlName="sender"  [ngClass]="{'is-invalid':submitted && smsForm.get('sender')?.errors}" aria-label="Default select example">
+      <option value="" selected>Open this select menu</option>
+      <option *ngFor="let senderitem of senderArray">{{senderitem}}</option>
+    </select>
   </div>
-  <div class="card-footer text-muted">
-    2 days ago
+    <hr>
+    <div class="d-flex ">
+      <label class="col-md-2 control-lable">Template</label>
+      <select class="form-select col-10" formControlName="templateid" (change)="changevalue($event)"  [ngClass]="{'is-invalid':submitted && smsForm.get('templateid')?.errors}" aria-label="Default select example">
+        <option value="" selected>Open this select menu</option>
+        <option *ngFor="let templateitem of templateArray" [value]="templateitem.value">{{templateitem.key}}</option>
+       
+      </select>
+    </div>
+    <hr>
+    <div class="d-flex">
+      <label class="col-md-2 control-lable">Mobile No</label>
+      <textarea class="form-control col-10" ng-model="number" formControlName="mob" [ngClass]="{'is-invalid':submitted && smsForm.get('mob')?.errors}" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="form-check check1">
+      <input class="form-check-input" type="checkbox" (click)="checkBoxFun()" value="" formControlName="clearChekBox" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Clear list
+      </label>
+    </div>
+    <div class="badge1">      
+      <span class="badge badge-secondary">Mobile No Count:0</span>
+    </div>
+    <hr>
+    <div class="alert alert-primary col-12" role="alert">
+      One variable = 30 characters only. Enter the number of characters accordingly.                                    
+    </div>
+    <div class="form-check check2">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label for="ContentPlaceHolder1_chkUnicode" style="font-weight: bold;">Unicode (Hindi, Marathi SMS)</label>        
+    </div>
+    <div class="d-flex mt-5">
+    
+      <label class="col-md-2 control-lable">Message</label>
+      <textarea class="form-control col-10" (mouseover)="onMouseOver()" formControlName="msg"  [ngClass]="{'is-invalid':submitted && smsForm.get('msg')?.errors}"  id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="badge2">      
+      <span class="badge badge-secondary">Count:{{kk}} Text:{{limit}}</span>
+    </div>
+    <div class="badge3">      
+      <span class="badge badge-primary">Total Cradit Charge:0</span>
+    </div>
+</div>
+<div class="card-footer" style="margin-right: -2%; margin-left:-2%;">
+  <div class="d-flex">
+  <div class="form-check d-flex">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+      <label for="ContentPlaceHolder1_chkUnicode" style="font-weight: bold;">Schedule</label>        
+     </div>
+     
+  <div class="btnConfirm">
+        <button class="btn btn-primary">Confirm</button>
+   </div>
+  </div>
+<hr style="margin-right: -2%; margin-left:-2%;">
+<div class="d-flex">      
+  <label class="col-md-2 control-lable">Test SMS</label>
+  <textarea class="form-control col-8" placeholder="Enter the mobile number" id="exampleFormControlTextarea1" rows="2"></textarea>
+  <div class="btnTestSMS">
+    <button type="submit" class="btn btn-warning">Test SMS</button>
   </div>
 </div>
+</div>
+</div>
+
+
+<div class="card text-center col-md-3 subTable"  [ngClass]="show? 'maxwidth': 'minwidth'">
+<div class="card-header mx-n3 d-flex"  style="font-weight: bold; margin-right: -2%; margin-left:-2%;">
+
+ <i class="bi bi-list mx-2"></i> Select Option<div (click)="showOption()"><i class="bi bi-box-arrow-down" style="margin-left: 6rem;"></i></div>
+</div>
+<div class="card-body mt-1" >
+
+  <div class="card text-center insidecard" *ngIf="show">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Groups</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Choose File</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <div class="form-check" style="margin-left:-6rem;">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Select All
+        </label>
+      </div>
+      <div class="form-check" style=" margin-left:-6.8rem;">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Pool(2)
+        </label>
+      </div>
+      <div class="form-check" style="margin-left:-7rem;">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          test(0)
+        </label>
+      </div>
+    </div>
+  </div> 
+</div>
+<!-- <div class="card-footer mx-n3 text-muted">
+  2 days ago
+</div> -->
 
 </div>
 
+<div class="card text-center col-md-3 subTable3"  [ngClass]="show2? 'maxwidth2': 'minwidth2'">
+<div class="card-header mx-n3 d-flex" (click)="showOption2()" style="font-weight: bold; margin-right: -2%; margin-left:-2%;">
+
+ <i class="bi bi-list mx-2"></i> Select Chatboat<div (click)="showOption"><i class="bi bi-box-arrow-down" style="margin-right: -10rem;"></i></div>
+</div>
+<div class="card-body" *ngIf="show2">
+  <select class="form-select" formControlName="sender" aria-label="Default select example">
+    <option value="" selected>Open this select menu</option>
+
+  </select>
+
+</div>
+
+</div>
+
+
+
+
+</div>
+</form>
+</div>
 
