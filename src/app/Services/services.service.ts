@@ -8,15 +8,17 @@ export class ServicesService {
 
   constructor(private http:HttpClient) { }
 
-  balanceCount:any=100; 
-
-  
-localcount:any;
-
+  userName:any; 
 
 localdata(){
-  this.balanceCount=(localStorage.getItem('count')  || 100);
+  this.userName=(localStorage.getItem('count'));
   return
+}
+
+getBalance(username:any){
+  debugger;
+ return this.http.get('http://api.sms123.in/api/Credit/Credit?username='+username)
+
 }
 
 getsms(data:any){

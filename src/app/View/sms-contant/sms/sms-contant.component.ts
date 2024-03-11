@@ -20,9 +20,17 @@ updatecount:any;
 localcount:any;
 msglength:any;
 checkBoxClr:boolean=false;
-kk:any;
-limit:any;
-    
+textlength:any;
+limit:any=0;
+validMobCount=0;
+invalidMobCount=0; 
+creditcount:any;   
+mobcount:any;
+
+fileoptionshow:boolean=true;
+groupOptionShow:boolean=false;
+
+
 constructor(private service:ServicesService,private formbuilder:FormBuilder,private sidebarService:SidenavService){}
 
   
@@ -35,7 +43,7 @@ ngOnInit(){
     password:["tr@1234"],
     sender:['',Validators.required],
     templateid:['',Validators.required],
-    mob:['',[Validators.required,Validators.pattern('^[0-9]*$')]],
+    mob:['',Validators.required],
     msg:['',Validators.required],
     coding:['1'],
     clearChekBox:[false]
@@ -53,39 +61,117 @@ ngOnInit(){
   
   
 }
-// const kk= this.templateArray.find((k)=>k.key)
-// this.msglength=kk?.key.length
-// console.log('keykeykey',this.msglength);
+
+
+mobileNoCount(){
+  const mobileNumbers = this.smsForm.controls['mob'].value.split(',').map((number:any) => number.trim());
+    
+  this.validMobCount = 0;
+  this.invalidMobCount = 0;
+
+  mobileNumbers.forEach((number:any) => {
+    if (number.length === 10 && /^\d+$/.test(number)) {
+      this.validMobCount++;
+    } else {
+      this.invalidMobCount++;
+    }
+  });
+
+
+  
+//  this.mobcount=this.smsForm.controls['mob'].value
+//  let splitcount=this.mobcount.split('\n').map((number:any)=>number.trim());
+// // const mob = splitcount.join(',');
+
+// console.log('splicoiunt',splitcount);
+
+// let fixmobilecount=new Set<string>(splitcount)
+// const tempArray:any=[]
+// const mobileArray=Array.from(fixmobilecount);
+// let result = mobileArray.filter(
+//   (element,index,mobileArray)=>{
+
+//     if(element)
+   
+//       tempArray.push(element)
+      
+    
+//     return ;
+//   }
+// );
+
+// const lastmobilenumber=tempArray[tempArray.length -1];
+
+
+
+
+// if(this.validMobileNumbers(lastmobilenumber)){
+//   this.validMobCount++
+// }
+// else{
+//   this.invalidMobCount++
+//   this.smsForm.patchValue({
+//     mob:''
+//   })
+// }
+// }
+
+// validMobileNumbers(lastumber:any):boolean{
+//   if(lastumber.length==10){
+//     return true;
+//   }
+//   else{
+//     return false;
+//   }
+}
+
+// clear(){
+//   debugger;
+//   for(let i=0;i<this.smsForm.controls['mob'].value.length-1;i++){
+//     if(this.smsForm.controls['mob'].value[i]=="\n"){
+//       this.validMobCount--
+//     }
+//   }
+// }
+
 onMouseOver(){
   this.msglength=this.smsForm.controls['msg']
   console.log(this.msglength.value.length);
-  this.kk=this.msglength.value.length
+  this.textlength=this.msglength.value.length
   
-  // this.kk=this.templateArray.find((m)=>m.key)
-  // console.log(this.kk.key.length);
-  // this.msglength=this.kk.upp.key.length
 
-  // if(this.kk>10){
-    //   this.limit
-    //   console.log('looop',this.limit);      
-    // }
-    
-    let i=this.kk
-
-    if(this.kk>10)
-    {
-      for(i=1;i<3;i++)
-      {
-        this.limit=i++
-     console.log('looop',this.limit); 
-
-    }
-    }
-
+   
+  if(this.textlength<160)
+  {
+    this.limit=1;
+  }
+  else if(this.textlength %160==0){
+    let temp=this.textlength/160
+    this.limit=Math.floor(temp);
+  }
+  else{
+    let temp=this.textlength/160
+    this.limit=Math.floor(temp)+1;
+  }
 
     
+  this.creditcount=this.validMobCount*this.limit;
   
   
+  }
+
+
+
+  openfileupload(){
+    this.fileoptionshow=true;
+    this.groupOptionShow=false
+
+  }
+
+  OngropOption(){
+    this.groupOptionShow=true
+    this.fileoptionshow=false;
+
   }
 
 checkBoxFun(){
@@ -130,16 +216,15 @@ onSubmit(){
         console.log(this.smsForm.value); 
         console.log(res);
         
-       this.service.balanceCount--;
-        localStorage.setItem('count',(this.service.balanceCount));
+       this.service.userName=this.smsForm.value.username;
+        localStorage.setItem('count',(this.service.userName));
       }
       else{
         alert('Somwthing went wrong');
-      }
+        console.log(res);
         
-    
-    
-         
+      }
+                 
     });
   }
 

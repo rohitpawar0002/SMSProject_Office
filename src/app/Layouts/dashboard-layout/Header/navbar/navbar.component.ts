@@ -10,9 +10,9 @@ import { SidenavService } from 'src/app/Services/sidenav.service';
 })
 export class NavbarComponent implements OnInit {
   CurrentDate = new Date();
-  count: any;
+  UserName: any;
   show: boolean = false;
-  count2: any;
+  count: any;
 
   constructor( private smsservice: ServicesService,  private sideNavService: SidenavService
   ) {
@@ -23,16 +23,20 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.smsservice.localdata();
-
-    
-      // this.count = new Promise((resolve, reject) => {
-    //   resolve(this.smsservice.balanceCount);
-    // });
+    this.loadcount()
   }
   loadcount(){
-    this.count=this.smsservice.balanceCount
-    console.log('count',this.count);
-    }
+    debugger;
+    this.UserName=this.smsservice.userName
+    this.smsservice.getBalance(this.UserName).subscribe({
+      next:((res:any)=>{
+        this.count=res.SMSBalance
+      })
+     
+    })
+    console.log('count',this.UserName);
+
+   }
 
 
   toggelNav() {

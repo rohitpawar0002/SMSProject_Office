@@ -19,13 +19,18 @@ width: 85vw;
 }
 
 .check1{
-margin-left:37rem;
+margin-left:39rem;
+margin-top: 0.3rem;
 font-size: 14px;
 }
 
 .badge1{
     margin-top: -1.4rem;
     margin-left:7rem;
+}
+.badgeinvalidMob{
+    margin-left: 1rem;
+    margin-top: -1.4rem;
 }
 hr{
    margin-left:-2rem;
@@ -42,7 +47,7 @@ hr{
 }
 .badge3{
     margin-left: 32rem;
-    margin-top: -1.5rem;
+    margin-top:-1rem;
 }
 .btnConfirm{
     margin-left:30rem;
@@ -88,6 +93,7 @@ select{
 .insidecard{
     margin-right: -1rem;
     margin-left: -1rem;
+    cursor: pointer;
 
 }
 .maxwidth{

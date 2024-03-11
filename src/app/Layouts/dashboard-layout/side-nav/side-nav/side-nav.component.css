@@ -43,12 +43,12 @@ color: white;
   /* margin-left: -0.3rem; */
   z-index: 999;
 }
-i:hover {
+/* i:hover {
   color: blue;
 }
 span:hover {
   color: blue;
-}
+} */
 
 input[type="radio"] {
   display: none;
