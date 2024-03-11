@@ -1,6 +1,7 @@
 .alert1{
     margin-top: 1vh;
-    width:77vw ;
+    left: 2vw;
+    width:79.5vw ;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     font-size: 14px;
 }
@@ -56,20 +57,21 @@ hr{
 .bigbox{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     font-size: 14px;
+    left: 2vw;
 
 }
 
 .subTable{
     height: 16rem;
-    margin-left:2rem;
+    margin-left:4vw;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     font-size: 14px;
 }
 
 .subTable3{
-margin-top: 18rem;
-margin-left: -17.4rem;
 height: 10rem;
+margin-left:51rem;
+margin-top: -25rem;
 box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 font-size: 14px;
 }
