@@ -1,5 +1,8 @@
+import { DeclarationListEmitMode, Lexer } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ReposrtService } from 'src/app/Services/reposrt.service';
 import { ServicesService } from 'src/app/Services/services.service';
 import { SidenavService } from 'src/app/Services/sidenav.service';
 
@@ -15,23 +18,32 @@ export class SmsContantComponent {
 display:any
 show:boolean=true;
 show2:boolean=true;
+mediaShow:boolean=true;
 submitted:boolean=false;
 updatecount:any;
 localcount:any;
 msglength:any;
 checkBoxClr:boolean=false;
+checkpoo:boolean=false;
 textlength:any;
 limit:any=0;
 validMobCount=0;
 invalidMobCount=0; 
 creditcount:any;   
 mobcount:any;
+pooArray:any=[];
+
 
 fileoptionshow:boolean=true;
 groupOptionShow:boolean=false;
+mdediaVideoshow:boolean=true;
+mediaImgShow:boolean=false;
 
 
-constructor(private service:ServicesService,private formbuilder:FormBuilder,private sidebarService:SidenavService){}
+constructor(private service:ServicesService,private formbuilder:FormBuilder,
+  private sidebarService:SidenavService,private reposrtService:ReposrtService,
+  private router:Router
+  ){}
 
   
 showMain: boolean = true;
@@ -59,6 +71,8 @@ ngOnInit(){
   
    this.limit=''
   
+
+
   
 }
 
@@ -76,6 +90,8 @@ mobileNoCount(){
       this.invalidMobCount++;
     }
   });
+
+  this.creditcount=this.validMobCount*this.limit;
 
 
   
@@ -134,29 +150,31 @@ mobileNoCount(){
 //   }
 // }
 
-onMouseOver(){
-  this.msglength=this.smsForm.controls['msg']
-  console.log(this.msglength.value.length);
-  this.textlength=this.msglength.value.length
-  
+messageCount(){
+  debugger;
+  // this.msglength=this.smsForm.controls['msg']
+  // console.log(this.msglength.value.length);
+  // this.textlength=this.msglength.value.length
+  this.smsForm.get('msg')!.valueChanges.subscribe(value=>{
+    this.textlength=value.length;
 
-   
-  if(this.textlength<160)
-  {
-    this.limit=1;
-  }
-  else if(this.textlength %160==0){
-    let temp=this.textlength/160
-    this.limit=Math.floor(temp);
-  }
-  else{
-    let temp=this.textlength/160
-    this.limit=Math.floor(temp)+1;
-  }
+    if(this.textlength<160)
+    {
+      this.limit=1;
+    }
+    else if(this.textlength %160==0){
+      let temp=this.textlength/160
+      this.limit=Math.floor(temp);
+    }
+    else{
+      let temp=this.textlength/160
+      this.limit=Math.floor(temp)+1;
+    }
+    this.creditcount=this.validMobCount*this.limit;
 
-    
-  this.creditcount=this.validMobCount*this.limit;
   
+      
+  })
   
   }
 
@@ -171,14 +189,53 @@ onMouseOver(){
   OngropOption(){
     this.groupOptionShow=true
     this.fileoptionshow=false;
+  }
+
+  OnmediaImg(){
+    this.mdediaVideoshow=false;
+    this.mediaImgShow=true;
 
   }
+  Onmeidavideo(){
+    this.mdediaVideoshow=true;
+    this.mediaImgShow=false;
+  }
+
 
 checkBoxFun(){
   this.checkBoxClr=true
   this.smsForm.patchValue({
     mob:''
   })
+  }
+
+  Onpoo(e:any){
+    // this.pooArray=;
+
+    if(e.target.checked==true){
+      this.smsForm.patchValue({
+        mob:['9730023006,\n9730033006']
+      })
+    }
+    else if(e.target.checked==false){
+      this.smsForm.patchValue({
+        mob:''
+      })
+    }
+
+
+  //  if(this.checkpoo=true){
+  //   this.smsForm.patchValue({
+  //     mob:'9730023006'
+  //   })
+  //  }
+  //  else if(this.checkpoo=false){
+  //   this.smsForm.patchValue({
+  //     mob:''
+  //   })
+  //  }
+
+ 
   }
 
 
@@ -201,10 +258,17 @@ changevalue(data:any){
       // msg:'Dear User your OTP is {#var#} Kindly use OTP to validate your Registration. Team Trackzia'
       // msg:'Dear {#var#} , Your Complaint with Complaint Id: {#var#} has Been Resolve Kindly Share OTP, The OTP is {#var#} \n From Nuevas'
     })
+    debugger;
+    this.textlength=key?.key.length;
+    this.limit=1
+
+    this.messageCount()
   }
 
 
 onSubmit(){
+ 
+
   this.submitted=true;
   if(this.smsForm.invalid){
     alert('Please check all fileds')
@@ -215,9 +279,17 @@ onSubmit(){
         alert("Message send successfully!")
         console.log(this.smsForm.value); 
         console.log(res);
-        
-       this.service.userName=this.smsForm.value.username;
-        localStorage.setItem('count',(this.service.userName));
+        this.service.userName=this.smsForm.value.username;
+        localStorage.setItem('count',JSON.stringify( this.service.userName));
+        this.reposrtService.ResArray=res;
+        this.reposrtService.postReportAPI(res).subscribe({
+          next:(res:any)=>{
+            this.router.navigate(['report'])   
+            console.log(res);    
+
+          }
+        })
+        // localStorage.setItem('report',JSON.stringify(this.reposrtService.ResArray))
       }
       else{
         alert('Somwthing went wrong');
@@ -228,10 +300,15 @@ onSubmit(){
     });
   }
 
+
+
   showOption(){
     this.show=!this.show          
   }
 
+  showOptionMedia(){
+    this.mediaShow=!this.mediaShow
+  }
   showOption2(){
     this.show2=!this.show2          
   }

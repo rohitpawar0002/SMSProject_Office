@@ -8,15 +8,14 @@ export class ServicesService {
 
   constructor(private http:HttpClient) { }
 
-  userName:any; 
+  userName:any=[]; 
 
 localdata(){
-  this.userName=(localStorage.getItem('count'));
+  this.userName=JSON.parse(localStorage.getItem('count') || '');
   return
 }
 
 getBalance(username:any){
-  debugger;
  return this.http.get('http://api.sms123.in/api/Credit/Credit?username='+username)
 
 }

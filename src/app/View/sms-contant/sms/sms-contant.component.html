@@ -57,7 +57,7 @@
     <div class="d-flex mt-5">
     
       <label class="col-md-2 control-lable">Message</label>
-      <textarea class="form-control col-10" (mouseover)="onMouseOver()" formControlName="msg"  [ngClass]="{'is-invalid':submitted && smsForm.get('msg')?.errors}"  id="exampleFormControlTextarea1" rows="3"></textarea>
+      <textarea class="form-control col-10" formControlName="msg"  [ngClass]="{'is-invalid':submitted && smsForm.get('msg')?.errors}"  id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
     <div class="badge2">      
       <span class="badge badge-secondary">Count:{{textlength}} Text:{{limit}}</span>
@@ -116,7 +116,7 @@
         </label>
       </div>
       <div *ngIf="groupOptionShow" class="form-check" style=" margin-left:-6.8rem;">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <input class="form-check-input" type="checkbox" (click)="Onpoo($event)" value="" id="flexCheckDefault"/>
         <label class="form-check-label" for="flexCheckDefault">
           Pool(2)
         </label>
@@ -158,7 +158,56 @@
 </div>
 
 </div>
+
+
+
+<div class="card text-center col-md-3 subTable4" [ngClass]="mediaShow? 'maxheigth': 'minheigth'" >
+  <div class="card-header mx-n3 d-flex"  style="font-weight: bold; margin-right: -2%; margin-left:-2%;">
+  
+   <i class="bi bi-list mx-2"></i> Select Media<div (click)="showOptionMedia()"><i class="bi bi-box-arrow-down" style="margin-left: 6rem;"></i></div>
+  </div>
+  <div class="card-body mt-1" >
+  
+    <div class="card text-center insidecard2" *ngIf="mediaShow">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="mediaImgShow? 'active':''" (click)="OnmediaImg()">img</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="mdediaVideoshow? 'active':''" (click)="Onmeidavideo()" type="file">Video</a>
+          </li>
+         
+        </ul>
+      </div>
+        <div class="card-body" >
+        <div *ngIf="mediaImgShow" class="form-check" style="margin-left:-6rem;">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <select class="form-select col-8" formControlName="sender"  [ngClass]="{'is-invalid':submitted && smsForm.get('sender')?.errors}" aria-label="Default select example">
+            <option value="" selected>Open this select menu</option>
+            <option *ngFor="let senderitem of senderArray">{{senderitem}}</option>
+          </select>
+        </div>
+    
+        <div  *ngIf="mdediaVideoshow">
+          <div  class="form-check" style="margin-left:-6rem;">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <select class="form-select col-8" formControlName="sender"  [ngClass]="{'is-invalid':submitted && smsForm.get('sender')?.errors}" aria-label="Default select example">
+              <option value="" selected>Open this select menu</option>
+              <option *ngFor="let senderitem of senderArray">{{senderitem}}</option>
+            </select>
+          </div>        </div>
+      </div>
+    </div> 
+  </div>
+  <!-- <div class="card-footer mx-n3 text-muted">
+    2 days ago
+  </div> -->
+  
+  </div>
 </div>
+  
+
 
 </form>
 </div>

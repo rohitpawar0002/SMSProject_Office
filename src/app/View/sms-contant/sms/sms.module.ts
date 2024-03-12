@@ -6,13 +6,15 @@ import { SmsContantComponent } from './sms-contant.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { ReportComponent } from './report/report.component';
 
 
 
 @NgModule({
   declarations: [
     SmsContantComponent,
-    HomeComponent
+    HomeComponent,
+    ReportComponent
   ],
   imports: [
     CommonModule,

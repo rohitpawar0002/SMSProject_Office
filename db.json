@@ -1,0 +1,28 @@
+{
+  "report": [
+    {
+      "id": "2b5d",
+      "Success": true,
+      "ErrorCode": "000",
+      "Message": "SMS Sent Successfully",
+      "MobileNo": "9730023006",
+      "Status": "Submited"
+    },
+    {
+      "id": "9446",
+      "Success": true,
+      "ErrorCode": "000,000,000",
+      "Message": "SMS Sent Successfully",
+      "MobileNo": "9730023006,9168266868,7028704745",
+      "Status": "Submited,Submited,Submited"
+    },
+    {
+      "id": "9e7c",
+      "Success": true,
+      "ErrorCode": "000",
+      "Message": "SMS Sent Successfully",
+      "MobileNo": "9730023006",
+      "Status": "Submited"
+    }
+  ]
+}

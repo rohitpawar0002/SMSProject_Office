@@ -67,7 +67,7 @@ hr{
 }
 
 .subTable{
-    height: 16rem;
+    height: 10rem;
     margin-left:4vw;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     font-size: 14px;
@@ -79,6 +79,10 @@ margin-left:59.5vw;
 margin-top: -25rem;
 box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 font-size: 14px;
+}
+.subTable4{
+    margin-top:2rem;
+    margin-left:59.4vw;
 }
 select{
     font-size: 14px;
@@ -94,12 +98,25 @@ select{
     margin-right: -1rem;
     margin-left: -1rem;
     cursor: pointer;
-
+}
+.insidecard2{
+    margin-right: -1rem;
+    margin-left: -1rem;
+    cursor: pointer;
+}
+.insidecard2 select{
+    margin-left:5rem; 
 }
 .maxwidth{
     height: 16rem;
 }
 .minwidth{
+    height: 2.6rem;
+}
+.maxheigth{
+    height: 14rem;
+}
+.minheigth{
     height: 2.6rem;
 }
 .card-header{

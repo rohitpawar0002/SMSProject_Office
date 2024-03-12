@@ -25,9 +25,10 @@ export class NavbarComponent implements OnInit {
     this.smsservice.localdata();
     this.loadcount()
   }
+  
   loadcount(){
-    debugger;
     this.UserName=this.smsservice.userName
+    // this.UserName='demotr'
     this.smsservice.getBalance(this.UserName).subscribe({
       next:((res:any)=>{
         this.count=res.SMSBalance
