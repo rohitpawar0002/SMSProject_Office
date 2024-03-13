@@ -33,6 +33,8 @@ creditcount:any;
 mobcount:any;
 pooArray:any=[];
 
+allselect:boolean=false;
+
 
 fileoptionshow:boolean=true;
 groupOptionShow:boolean=false;
@@ -209,18 +211,47 @@ checkBoxFun(){
   })
   }
 
+  onAllselect(e:any){
+    if(e.target.checked==true){
+      this.allselect=true
+      this.smsForm.patchValue({
+        mob:['9730023006,\n7219550690,\n9168266868']
+      })
+    }
+    else if(e.target.checked==false){
+      this.allselect=false
+      this.smsForm.patchValue({
+        mob:''
+      })
+    }
+  }
+
   Onpoo(e:any){
     // this.pooArray=;
 
     if(e.target.checked==true){
       this.smsForm.patchValue({
-        mob:['9730023006,\n9730033006']
+        mob:['9730023006,\n7219550690']
       })
     }
     else if(e.target.checked==false){
       this.smsForm.patchValue({
         mob:''
       })
+    }
+  }
+
+    test(e:any){
+      if(e.target.checked==true){
+        this.smsForm.patchValue({
+          mob:['9168266868']
+        })
+      }
+      else if(e.target.checked==false){
+        this.smsForm.patchValue({
+          mob:''
+        })
+      }
     }
 
 
@@ -236,7 +267,7 @@ checkBoxFun(){
   //  }
 
  
-  }
+
 
 
 senderArray=['NUEVAS','TRKZIA']

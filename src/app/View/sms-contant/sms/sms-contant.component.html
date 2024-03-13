@@ -110,19 +110,19 @@
     </div>
       <div class="card-body" >
       <div *ngIf="groupOptionShow" class="form-check" style="margin-left:-6rem;">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <input class="form-check-input" type="checkbox" (click)="onAllselect($event)" value="" id="flexCheckDefault">
         <label class="form-check-label" for="flexCheckDefault">
           Select All
         </label>
       </div>
       <div *ngIf="groupOptionShow" class="form-check" style=" margin-left:-6.8rem;">
-        <input class="form-check-input" type="checkbox" (click)="Onpoo($event)" value="" id="flexCheckDefault"/>
+        <input class="form-check-input" [checked]="allselect" type="checkbox" (click)="Onpoo($event)" value="" id="flexCheckDefault"/>
         <label class="form-check-label" for="flexCheckDefault">
           Pool(2)
         </label>
       </div>
       <div *ngIf="groupOptionShow" class="form-check" style="margin-left:-7rem;">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <input class="form-check-input" [checked]="allselect" type="checkbox" (click)="test($event)" value="" id="flexCheckDefault">
         <label class="form-check-label" for="flexCheckDefault">
           test(0)
         </label>
