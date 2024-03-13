@@ -36,8 +36,8 @@ pooArray:any=[];
 allselect:boolean=false;
 
 
-fileoptionshow:boolean=true;
-groupOptionShow:boolean=false;
+fileoptionshow:boolean=false;
+groupOptionShow:boolean=true;
 mdediaVideoshow:boolean=true;
 mediaImgShow:boolean=false;
 

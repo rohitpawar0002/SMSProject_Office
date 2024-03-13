@@ -1,7 +1,9 @@
+<div class="container">
+  <div class="content-table">
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">Id</th>
         <th scope="col">Success</th>
         <th scope="col">ErrorCode</th>
         <th scope="col">Message</th>
@@ -10,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of ArrayReport; index as i">
+      <tr *ngFor="let item of ArrayReport; index as i" class="bg-light border border-bottom-2">
         <th scope="row">{{i+1}}</th>
         <td>{{item.Success}}</td>
         <td>{{item.ErrorCode}}</td>
@@ -20,3 +22,5 @@
       </tr>
     </tbody>
   </table>
+</div>
+</div>
