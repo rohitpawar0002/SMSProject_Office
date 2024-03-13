@@ -102,6 +102,7 @@ select{
 .insidecard2{
     margin-right: -1rem;
     margin-left: -1rem;
+    height: 12rem;
     cursor: pointer;
 }
 .insidecard2 select{
@@ -114,7 +115,7 @@ select{
     height: 2.6rem;
 }
 .maxheigth{
-    height: 14rem;
+    height: 17rem;
 }
 .minheigth{
     height: 2.6rem;

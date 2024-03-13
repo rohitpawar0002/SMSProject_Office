@@ -4,11 +4,13 @@
     overflow-x: scroll;
     border-radius: 10px;
     margin-top: 7px;
+    margin: 2rem;
     margin-left: -0.4rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 th{
-    background-color: #009879;
+    background-color: #92aec7;
     color: #dddddd;
 
 }

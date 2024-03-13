@@ -98,5 +98,16 @@
     margin-left:2rem;
     margin-top: 0.6rem;
     font-size: 20px;
-
+}
+/* .msgCountBadge{
+    position: absolute;
+    margin-left: 0.5rem;
+} */
+.msgCountBadge span{
+    position: absolute;
+    margin-top: -0.6rem;
+    padding:0;
+    height: 0.8rem;
+    margin-left: 0.5rem;    
+    width:1.2rem;    
 }

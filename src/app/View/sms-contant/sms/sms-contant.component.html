@@ -30,10 +30,10 @@
     
     <div class="d-flex">
       <label class="col-md-2 control-lable">Mobile No</label>
-      <textarea class="form-control col-10" placeholder="You can send SMS in batches up to 50,000 at a time" ng-model="number" (keydown.enter)="mobileNoCount()" formControlName="mob" [ngClass]="{'is-invalid':submitted && smsForm.get('mob')?.errors}" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <textarea class="form-control col-10"  placeholder="You can send SMS in batches up to 50,000 at a time" ng-model="number" formControlName="mob" [ngClass]="{'is-invalid':submitted && smsForm.get('mob')?.errors}" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
     <div class="form-check check1">
-      <input class="form-check-input" type="checkbox" (click)="checkBoxFun()" value="" formControlName="clearChekBox" id="flexCheckDefault">
+      <input class="form-check-input" type="checkbox" [checked]="checkBoxClr"  (change)="checkBoxFun($event)" value="" formControlName="clearChekBox" id="flexCheckDefault">
       <label class="form-check-label" for="flexCheckDefault">
         Clear list
       </label>
@@ -110,25 +110,28 @@
     </div>
       <div class="card-body" >
       <div *ngIf="groupOptionShow" class="form-check" style="margin-left:-6rem;">
-        <input class="form-check-input" type="checkbox" (click)="onAllselect($event)" value="" id="flexCheckDefault">
+        <input class="form-check-input" [checked]="allselect" type="checkbox" (change)="onAllselect($event)" value="" id="flexCheckDefault">
         <label class="form-check-label" for="flexCheckDefault">
           Select All
         </label>
       </div>
       <div *ngIf="groupOptionShow" class="form-check" style=" margin-left:-6.8rem;">
-        <input class="form-check-input" [checked]="allselect" type="checkbox" (click)="Onpoo($event)" value="" id="flexCheckDefault"/>
+        <input class="form-check-input" [checked]="allselect" type="checkbox" (change)="Onpoo($event)" value="" id="flexCheckDefault"/>
         <label class="form-check-label" for="flexCheckDefault">
           Pool(2)
         </label>
       </div>
       <div *ngIf="groupOptionShow" class="form-check" style="margin-left:-7rem;">
-        <input class="form-check-input" [checked]="allselect" type="checkbox" (click)="test($event)" value="" id="flexCheckDefault">
+        <input class="form-check-input" [checked]="allselect" type="checkbox" (change)="test($event)" value="" id="flexCheckDefault">
         <label class="form-check-label" for="flexCheckDefault">
-          test(0)
+          test(1)
         </label>
       </div>
       <div class="uploadFile" *ngIf="fileoptionshow">
         <input type="file" >
+      </div>
+      <div *ngIf="fileoptionshow">
+        <button class="btn btn-warning">Import</button>
       </div>
     </div>
   </div> 
@@ -183,20 +186,30 @@
         <div class="card-body" >
         <div *ngIf="mediaImgShow" class="form-check" style="margin-left:-6rem;">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <select class="form-select col-8" formControlName="sender"  [ngClass]="{'is-invalid':submitted && smsForm.get('sender')?.errors}" aria-label="Default select example">
+          <select class="form-select col-8"  aria-label="Default select example">
             <option value="" selected>Open this select menu</option>
-            <option *ngFor="let senderitem of senderArray">{{senderitem}}</option>
+            <option value="image1.jpg">Image1</option>
+            <option value="image2.jpg">Image2</option>
+            <option value="img3.jpg">Image3</option>
+
+
           </select>
+          <div class="mt-3 ms-3">
+            <img [src]="selectedImage" width="120rem"> 
+          </div>
         </div>
     
         <div  *ngIf="mdediaVideoshow">
           <div  class="form-check" style="margin-left:-6rem;">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <select class="form-select col-8" formControlName="sender"  [ngClass]="{'is-invalid':submitted && smsForm.get('sender')?.errors}" aria-label="Default select example">
+            <select class="form-select col-8"  aria-label="Default select example">
               <option value="" selected>Open this select menu</option>
               <option *ngFor="let senderitem of senderArray">{{senderitem}}</option>
             </select>
-          </div>        </div>
+          </div>   
+     
+          <!-- <img src="../../../../assets/image1.jpg" alt=""> -->
+            </div>
       </div>
     </div> 
   </div>
