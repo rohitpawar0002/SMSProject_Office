@@ -206,7 +206,9 @@ export class SmsContantComponent {
       let currentNumbers = this.smsForm.get('mob')?.value;
 
       if (!currentNumbers.includes(this.poolMobile)) {
-        currentNumbers += ',\n' + this.poolMobile;
+       currentNumbers ?  currentNumbers += ',\n' + this.poolMobile  : currentNumbers += this.poolMobile ;
+
+        // currentNumbers += this.poolMobile;
         this.smsForm.patchValue({
           mob: currentNumbers
         });
@@ -215,10 +217,13 @@ export class SmsContantComponent {
       }
     }
     else {
-      let replaceVar = this.smsForm.controls['mob'].value.replace(this.poolMobile, '');
+      const regex = new RegExp('(,\\n)?' + this.poolMobile + '(,\\n)?', 'g');
+      let replaceVar = this.smsForm.controls['mob'].value.replace(regex, '');
+      
       this.smsForm.patchValue({
         mob: replaceVar
       });
+      
     }
    
   }
@@ -227,7 +232,7 @@ export class SmsContantComponent {
     if (e.target.checked) {
       let currentNumbers = this.smsForm.get('mob')?.value || ''; // Ensure the value is not null
       if (!currentNumbers.includes(this.testMobile)) {
-        currentNumbers += ',\n' + this.testMobile;
+       currentNumbers ?  currentNumbers += ',\n' + this.testMobile  : currentNumbers += this.testMobile ;
         this.smsForm.patchValue({
           mob: currentNumbers
         });
@@ -235,7 +240,9 @@ export class SmsContantComponent {
         this.checkBoxClr = false;
       }
     } else {
-      let replaceVar = this.smsForm.controls['mob'].value.replace(this.testMobile, '');
+      const regex = new RegExp('(,\\n)?' + this.testMobile  + '(,\\n)?' , 'g');
+
+      let replaceVar = this.smsForm.controls['mob'].value.replace(regex, '');
       this.smsForm.patchValue({
         mob: replaceVar
       });
@@ -256,30 +263,21 @@ export class SmsContantComponent {
 
 
 
-  // onOptionImageSelected(e: any) {
-  //   debugger
-  //   this.selectedImage = `http://localhost:4200/assets/${e.target.value}`
-
-  //   let imageValue = e.target.value
-  //   console.log('valueeee', this.selectedImage);
-
-  // }
 
 
   senderArray = ['NUEVAS', 'TRKZIA']
 
   templateArray = [
-    { key: `Your My SMS verification Code id 1234. Do not share this code with others Team Nuevas',value:'1707161891201501738` },
+    { key: `Your My SMS verification Code id 1234. Do not share this code with others Team Nuevas`,value:'1707161891201501738' },
     { key: 'Dear User your OTP is  Kindly use OTP to validate your Registration. Team Trackzia', value: '1707161855199873979' },
     { key: 'Dear 1234 , Your Complaint with Complaint Id: 1234 has Been Resolve Kindly Share OTP, The OTP is 1234 \n From Nuevas', value: '1707161899992775140' }
   ]
 
   changevalue(data: any) {
-    debugger;
+    // debugger;
 
     // console.log(data.target.value);
     const key = this.templateArray.find((t) => t.value == data.target.value)
-
 
     this.smsForm.patchValue({
       // msg:'Your My SMS verification Code id . Do not share this code with others Team Nuevas',
@@ -342,6 +340,15 @@ export class SmsContantComponent {
 
   selectedImage: any = ''
 
+  
+  onOptionImageSelected(e: any) {
+    
+    this.selectedImage = `http://localhost:4200/assets/${e.target.value}`
+
+    let imageValue = e.target.value
+    console.log('valueeee', this.selectedImage);
+
+  }
 
 }
 

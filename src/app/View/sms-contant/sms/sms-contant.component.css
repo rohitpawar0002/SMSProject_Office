@@ -1,6 +1,6 @@
 .alert1{
     margin-top: 1vh;
-    left: 2vw;
+    left: 1vw;
     width:79.5vw ;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     font-size: 14px;
@@ -19,18 +19,26 @@ width: 85vw;
 }
 
 .check1{
-margin-left:39rem;
+margin-left:38rem;
 margin-top: 0.3rem;
 font-size: 14px;
 }
 
 .badge1{
     margin-top: -1.4rem;
+}
+.badge1 span{
     margin-left:7rem;
+    padding: 0.4rem;
 }
 .badgeinvalidMob{
-    margin-left: 1rem;
     margin-top: -1.4rem;
+
+}
+.badgeinvalidMob span{
+    margin-left: 1rem;
+    padding: 0.4rem;
+
 }
 hr{
    margin-left:-2rem;
@@ -42,12 +50,19 @@ hr{
     margin-top:1rem;
 
 }
-.badge2{
+.badge2 span{
     margin-left:7rem;
+    margin-top: 0.5rem;
+    padding: 0.4rem;
+
 }
 .badge3{
-    margin-left: 32rem;
     margin-top:-1rem;
+}
+.badge3 span{
+    margin-left: 32rem;
+    padding: 0.4rem;
+
 }
 .btnConfirm{
     margin-left:30rem;
@@ -62,27 +77,30 @@ hr{
 .bigbox{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     font-size: 14px;
-    left: 2vw;
+    /* left: 2vw; */
 
 }
 
 .subTable{
     height: 10rem;
-    margin-left:4vw;
+    margin-left:2vw;
+    margin-right:2vw;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     font-size: 14px;
 }
 
 .subTable3{
 height: 10rem;
-margin-left:59.5vw;
-margin-top: -27rem;
+margin-left:2vw;
+margin-right:2vw;
 box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 font-size: 14px;
 }
 .subTable4{
-    margin-top:2rem;
-    margin-left:59.4vw;
+    height: 10rem;
+    margin-left:2vw;
+    margin-right:2vw;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 select{
     font-size: 14px;
