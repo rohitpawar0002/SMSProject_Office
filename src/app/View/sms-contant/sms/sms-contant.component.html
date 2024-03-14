@@ -1,12 +1,15 @@
+<div [ngClass]="showThim? 'darkcolor':'brightcolor'"  >
 <div class="te" [ngClass]="showMain? 'minMaim':'maxMain'">
-  <div class="alert alert1 alert-primary" role="alert">
-    This is a primary alert—check it out!
-  </div>
 
-  <form [formGroup]="smsForm" (ngSubmit)="onSubmit()">
-    <div class="row mx-4 ">
+
+  <form class="p-2" [formGroup]="smsForm">
+
+    <div class="alert alert1 alert-primary" role="alert">
+      This is a primary alert—check it out!
+    </div>
+    <div class="row">
       <div class="card col-md-8 bigbox pe-3">
-        <div class="card-header mx-n3 fw-bold" >
+        <div class="card-header fw-bold" >
           <i class="bi bi-list"></i> Send SMS
         </div>
         <div class="card-body">
@@ -83,7 +86,7 @@
             </div>
 
             <div class="btnConfirm">
-              <button class="btn btn-primary">Confirm</button>
+              <button type="submit" (click)="onsubmit()" class="btn btn-primary">Confirm</button>
             </div>
           </div>
           <hr style="margin-right: -2%; margin-left:-2%;">
@@ -92,7 +95,7 @@
             <textarea class="form-control col-8" placeholder="Enter the mobile number" id="exampleFormControlTextarea1"
               rows="2"></textarea>
             <div class="btnTestSMS">
-              <button type="submit" class="btn btn-warning">Test SMS</button>
+              <button class="btn btn-warning">Test SMS</button>
             </div>
           </div>
         </div>
@@ -114,8 +117,7 @@
                     <a class="nav-link" [ngClass]="groupOptionShow? 'active':''" (click)="OngropOption()">Groups</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" [ngClass]="fileoptionshow? 'active':''" (click)="openfileupload()"
-                      type="file">Choose File</a>
+                    <a class="nav-link" [ngClass]="fileoptionshow? 'active':''" (click)="openfileupload()">Choose File</a>
                   </li>
   
                 </ul>
@@ -143,10 +145,10 @@
                   </label>
                 </div>
                 <div class="uploadFile" *ngIf="fileoptionshow">
-                  <input type="file">
+                  <input type="file" (change)="onFileSelected($event)">
                 </div>
                 <div *ngIf="fileoptionshow">
-                  <button class="btn btn-warning">Import</button>
+                  <button class="btn btn-warning" (click)="importContacts()">Import</button>
                 </div>
               </div>
             </div>
@@ -160,7 +162,7 @@
             <i class="bi bi-list mx-2"></i> Select Chatboat<div (click)="showOption"><i class="bi bi-box-arrow-down"
               style="margin-left: 6rem;"></i></div>
           </div>
-          <div class="card-body" *ngIf="show2">
+          <div class="card-body chatboat" *ngIf="show2">
             <select class="form-select" formControlName="sender" aria-label="Default select example">
               <option value="" selected>Open this select menu</option>
   
@@ -212,13 +214,16 @@
                 <div *ngIf="mdediaVideoshow">
                   <div class="form-check" style="margin-left:-6rem;">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <select class="form-select col-8" aria-label="Default select example">
+                    <select class="form-select col-8" (change)="onOptionVideoSelected($event)" aria-label="Default select example">
                       <option value="" selected>Open this select menu</option>
-                      <option *ngFor="let senderitem of senderArray">{{senderitem}}</option>
+                      <option value="movie.mp4">Video1</option>
+                      <option value="movie2.mp4">Video2</option>
+                      <option value="movie3.mp4">Video3</option>
                     </select>
                   </div>
-  
-                  <!-- <img src="../../../../assets/image1.jpg" alt=""> -->
+                  <div class="mt-3" *ngIf="videoAvalable">
+                    <video  controls [src]="selectedVideo" width="150rem"></video>
+                  </div>
                 </div>
               </div>
             </div>
@@ -233,4 +238,5 @@
     </div>
 
   </form>
+</div>
 </div>

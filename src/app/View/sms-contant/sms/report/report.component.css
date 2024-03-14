@@ -10,7 +10,7 @@
 }
 
 th{
-    background-color: #92aec7;
+    background-color:#588157;
     color: #dddddd;
 
 }
@@ -19,5 +19,5 @@ th{
 }
 .content-table th, 
 .content-table td{
-    padding: 12px 15px;
+    padding: 10px 10px;
 }

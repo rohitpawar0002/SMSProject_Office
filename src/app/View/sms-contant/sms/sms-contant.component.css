@@ -1,6 +1,6 @@
 .alert1{
     margin-top: 1vh;
-    left: 1vw;
+    left: 2rem;
     width:79.5vw ;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     font-size: 14px;
@@ -15,7 +15,7 @@ margin-left:1rem;
     width: 96vw;
 }
 .minMaim{
-width: 85vw;
+width: 83vw;
 }
 
 .check1{
@@ -74,6 +74,9 @@ hr{
     font-size: 14px;
 
 }
+.row{
+    margin-left: 2rem;
+}
 .bigbox{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     font-size: 14px;
@@ -110,7 +113,7 @@ select{
     height: 8rem;
 }
 .minwidth2{
-    height: 2.6rem;
+    height: 2.3rem;
 }
 .insidecard{
     margin-right: -1rem;
@@ -130,7 +133,7 @@ select{
     height: 16rem;
 }
 .minwidth{
-    height: 2.6rem;
+    height: 2.3rem;
 }
 .maxheigth{
     height: 17rem;
@@ -138,14 +141,86 @@ select{
 .minheigth{
     height: 2.6rem;
 }
-.card-header{
-    /* background-color:     rgb(248,215,218); */
+/* .card-header{
     background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);    
 
-}
+} */
 .uploadFile{
     margin-top: 1rem;
     margin-bottom: 1rem;
     margin-left: 1rem;
 }
 
+.darkcolor{
+    background-color: #343a40;
+    margin-top: -1rem;
+  }
+  .darkcolor .insidecard{
+    background-color: #343a40;
+    color:white;
+    border: 1px solid white;
+
+  }
+  .darkcolor .card-header{
+    background-color: #343a40;
+    color:white;
+
+  }
+  .darkcolor .chatboat {
+    background-color: #343a40;
+    color:white;
+    border: 1px solid white;
+
+  }
+  .darkcolor .subTable3 {
+    background-color: #343a40;
+    color:white;
+    border: 1px solid white;
+    box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16), 0 3px 6px rgba(255, 255, 255, 0.23);
+
+
+  }
+  .darkcolor .subTable{
+    background-color: #343a40;
+    color:white;
+    border: 1px solid white;
+    box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16), 0 3px 6px rgba(255, 255, 255, 0.23);
+  }
+  .darkcolor .bigbox{
+    background-color: #343a40;
+    color:white;
+    border: 1px solid white;
+    box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16), 0 3px 6px rgba(255, 255, 255, 0.23);
+
+
+  }
+  .darkcolor .subTable4{
+    background-color: #343a40;
+    color:white;
+    border: 1px solid white;
+    box-shadow: 0 3px 6px rgba(255, 255, 255, 0.16), 0 3px 6px rgba(255, 255, 255, 0.23);
+
+
+  }
+  .darkcolor .insidecard2{
+    background-color: #343a40;
+    color:white;
+    border: 1px solid white;
+
+  }
+
+  .brightcolor{
+    background-color:#F9F9F9;
+
+  }
+  .brightcolor .bigbox .card-header{
+    background-color:#F9F9F9;
+    margin-left: -0.8rem;
+    margin-right: -1rem;
+
+
+  }
+  .brightcolor .card-heade{
+    background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);    
+
+  }

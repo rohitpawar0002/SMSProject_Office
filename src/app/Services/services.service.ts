@@ -11,7 +11,7 @@ export class ServicesService {
   userName:any=[]; 
 
 localdata(){
-  this.userName=JSON.parse(localStorage.getItem('count') || '');
+  this.userName=(localStorage.getItem('count') || '');
   return
 }
 

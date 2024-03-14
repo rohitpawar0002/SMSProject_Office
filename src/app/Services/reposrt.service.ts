@@ -16,6 +16,7 @@ export class ReposrtService {
 
 
   postReportAPI(data:any){
+   
     return this.http.post('http://localhost:3000/report',data)
   }
 

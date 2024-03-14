@@ -1,4 +1,6 @@
 <div class="container mt-2">
+
+  <button class="btn btn-warning" (click)="OnDownloadReport()">Download Report</button>
   <div class="content-table">
 <table class="table">
     <thead>
@@ -9,6 +11,8 @@
         <th scope="col">Message</th>
         <th scope="col">MobileNo</th>
         <th scope="col">Status</th>
+        <th scope="col">Date</th>
+
       </tr>
     </thead>
     <tbody>
@@ -19,6 +23,8 @@
         <td>{{item.Message}}</td>
         <td>{{item.MobileNo}}</td>
         <td>{{item.Status}}</td>
+        <td>{{item.Date | date:"short"}}</td>
+
       </tr>
     </tbody>
   </table>

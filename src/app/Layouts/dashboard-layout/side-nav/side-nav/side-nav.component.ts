@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ShowThimeService } from 'src/app/Services/show-thime.service';
 import { SidenavService } from 'src/app/Services/sidenav.service';
+
 
 @Component({
   selector: 'app-side-nav',
@@ -9,7 +11,7 @@ import { SidenavService } from 'src/app/Services/sidenav.service';
 export class SideNavComponent implements OnInit {
   thimShow: boolean = true;
 
-  constructor(private sidenavService: SidenavService) {}
+  constructor(private sidenavService: SidenavService,private showthimeService:ShowThimeService) {}
 
   show: boolean = true;
   ngOnInit(): void {
@@ -20,8 +22,10 @@ export class SideNavComponent implements OnInit {
     })
   }
 
-  thimChange(sh:any) {
+  thimeChange(sh:any) {
     this.thimShow = sh;
+    this.showthimeService.showThime.next(this.thimShow=sh);
+
   }
 
   // brightFun(){

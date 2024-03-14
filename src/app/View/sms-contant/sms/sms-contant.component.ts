@@ -4,7 +4,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ReposrtService } from 'src/app/Services/reposrt.service';
 import { ServicesService } from 'src/app/Services/services.service';
+import { ShowThimeService } from 'src/app/Services/show-thime.service';
 import { SidenavService } from 'src/app/Services/sidenav.service';
+import * as XLSX from 'xlsx';
+
 
 @Component({
   selector: 'app-sms-contant',
@@ -14,8 +17,10 @@ import { SidenavService } from 'src/app/Services/sidenav.service';
 export class SmsContantComponent {
 
 
+
   smsForm!: FormGroup;
   display: any
+  showThim: boolean = true;
   show: boolean = true;
   show2: boolean = true;
   mediaShow: boolean = true;
@@ -39,7 +44,6 @@ export class SmsContantComponent {
   allselect: boolean = false;
 
   allnumbers: string = '';
-  // imageValue:any;
 
   fileoptionshow: boolean = false;
   groupOptionShow: boolean = true;
@@ -49,7 +53,7 @@ export class SmsContantComponent {
 
   constructor(private service: ServicesService, private formbuilder: FormBuilder,
     private sidebarService: SidenavService, private reposrtService: ReposrtService,
-    private router: Router
+    private router: Router, private showThimeservice: ShowThimeService
   ) { }
 
 
@@ -69,6 +73,12 @@ export class SmsContantComponent {
 
     });
 
+    this.showThimeservice.showThime$.subscribe({
+      next: (res: any) => {
+        this.showThim = res;
+      }
+    })
+
 
     this.sidebarService.showNav$.subscribe({
       next: (res) => {
@@ -81,10 +91,8 @@ export class SmsContantComponent {
     this.smsForm.get('mob')!.valueChanges.subscribe(value => {
       this.mobileNoCount(value)
     })
-
-
   }
-
+  datee = new Date();
 
   mobileNoCount(value: string): void {
 
@@ -105,17 +113,6 @@ export class SmsContantComponent {
 
   }
 
-
-
-  // clear(){
-  //   debugger;
-  //   for(let i=0;i<this.smsForm.controls['mob'].value.length-1;i++){
-  //     if(this.smsForm.controls['mob'].value[i]=="\n"){
-  //       this.validMobCount--
-  //     }
-  //   }
-  // }
-
   messageCount() {
     // this.msglength=this.smsForm.controls['msg']
     // console.log(this.msglength.value.length);
@@ -135,14 +132,8 @@ export class SmsContantComponent {
         this.limit = Math.floor(temp) + 1;
       }
       this.creditcount = this.validMobCount * this.limit;
-
-
-
     })
-
   }
-
-
 
   openfileupload() {
     this.fileoptionshow = true;
@@ -173,7 +164,7 @@ export class SmsContantComponent {
         mob: ''
       })
       this.allselect = false
-      this.invalidMobCount=0
+      this.invalidMobCount = 0
 
     }
 
@@ -186,26 +177,26 @@ export class SmsContantComponent {
       this.smsForm.patchValue({
         mob: selectedNumbers
       });
-      this.mobileNoCount(selectedNumbers); // Assuming this function is used to count mobile numbers
+      this.mobileNoCount(selectedNumbers);
       this.checkBoxClr = false;
     }
     else {
-      this.allselect = false;
-      // Clear the phone numbers when the checkbox is unchecked
+
       this.smsForm.patchValue({
         mob: ''
       });
+      this.allselect = false;
       this.invalidMobCount = 0;
     }
   }
 
   Onpoo(e: any) {
-    
+
     if (e.target.checked == true) {
       let currentNumbers = this.smsForm.get('mob')?.value;
 
       if (!currentNumbers.includes(this.poolMobile)) {
-       currentNumbers ?  currentNumbers += ',\n' + this.poolMobile  : currentNumbers += this.poolMobile ;
+        currentNumbers ? currentNumbers += ',\n' + this.poolMobile : currentNumbers += this.poolMobile;
 
         // currentNumbers += this.poolMobile;
         this.smsForm.patchValue({
@@ -218,20 +209,21 @@ export class SmsContantComponent {
     else {
       const regex = new RegExp('(,\\n)?' + this.poolMobile + '(,\\n)?', 'g');
       let replaceVar = this.smsForm.controls['mob'].value.replace(regex, '');
-      
+
       this.smsForm.patchValue({
         mob: replaceVar
       });
-      
+      this.invalidMobCount = 0
+
     }
-   
+
   }
 
   test(e: any) {
     if (e.target.checked) {
-      let currentNumbers = this.smsForm.get('mob')?.value || ''; // Ensure the value is not null
+      let currentNumbers = this.smsForm.get('mob')?.value || '';
       if (!currentNumbers.includes(this.testMobile)) {
-       currentNumbers ?  currentNumbers += ',\n' + this.testMobile  : currentNumbers += this.testMobile ;
+        currentNumbers ? currentNumbers += ',\n' + this.testMobile : currentNumbers += this.testMobile;
         this.smsForm.patchValue({
           mob: currentNumbers
         });
@@ -239,44 +231,54 @@ export class SmsContantComponent {
         this.checkBoxClr = false;
       }
     } else {
-      const regex = new RegExp('(,\\n)?' + this.testMobile  + '(,\\n)?' , 'g');
+      const regex = new RegExp('(,\\n)?' + this.testMobile + '(,\\n)?', 'g');
 
       let replaceVar = this.smsForm.controls['mob'].value.replace(regex, '');
       this.smsForm.patchValue({
         mob: replaceVar
       });
+      this.invalidMobCount = 0
     }
   }
 
-
-  //  if(this.checkpoo=true){
-  //   this.smsForm.patchValue({
-  //     mob:'9730023006'
-  //   })
-  //  }
-  //  else if(this.checkpoo=false){
-  //   this.smsForm.patchValue({
-  //     mob:''
-  //   })
-  //  }
-
-
+  selectedImage: any = ''
 
   onOptionImageSelected(e: any) {
-    
-    this.selectedImage = `http://localhost:4200/assets/${e.target.value}`
-
     let imageValue = e.target.value
+    this.selectedImage = `http://localhost:4200/assets/${imageValue}`
+
     console.log('valueeee', this.selectedImage);
+
+    this.templateArray = this.templateArray.map(template => {
+      template.key = template.key.replace('{var}', this.selectedImage);
+      return template;
+    });
+  }
+
+  selectedVideo: any = ''
+  videoAvalable: boolean = false;
+
+  onOptionVideoSelected(e: any) {
+
+    let videoValue = e.target.value
+    this.selectedVideo = `../../../../assets/${videoValue}`
+
+
+    if (videoValue == "") {
+      this.videoAvalable = false;
+    }
+    else {
+      this.videoAvalable = true;
+    }
 
   }
 
   senderArray = ['NUEVAS', 'TRKZIA']
 
   templateArray = [
-    { key: `Your My SMS verification Code id 1234. Do not share this code with others Team Nuevas`,value:'1707161891201501738' },
-    { key: 'Dear User your OTP is  Kindly use OTP to validate your Registration. Team Trackzia', value: '1707161855199873979' },
-    { key: 'Dear 1234 , Your Complaint with Complaint Id: 1234 has Been Resolve Kindly Share OTP, The OTP is 1234 \n From Nuevas', value: '1707161899992775140' }
+    { key: `Your My SMS verification Code id {var}. Do not share this code with others Team Nuevas`, value: '1707161891201501738' },
+    { key: 'Dear User your OTP is {var} Kindly use OTP to validate your Registration. Team Trackzia', value: '1707161855199873979' },
+    { key: 'Dear 1234 , Your Complaint with Complaint Id: {var} has Been Resolve Kindly Share OTP, The OTP is 1234 \n From Nuevas', value: '1707161899992775140' }
   ]
 
   changevalue(data: any) {
@@ -298,7 +300,7 @@ export class SmsContantComponent {
   }
 
 
-  onSubmit() {
+  onsubmit() {
 
     this.submitted = true;
     if (this.smsForm.invalid) {
@@ -313,6 +315,8 @@ export class SmsContantComponent {
         this.service.userName = this.smsForm.value.username;
         localStorage.setItem('count', JSON.stringify(this.service.userName));
         this.reposrtService.ResArray = res;
+        res['Date'] = this.datee
+        res['msg'] = this.smsForm.controls['msg'].value;
         this.reposrtService.postReportAPI(res).subscribe({
           next: (res: any) => {
             this.router.navigate(['report'])
@@ -320,7 +324,6 @@ export class SmsContantComponent {
 
           }
         })
-        // localStorage.setItem('report',JSON.stringify(this.reposrtService.ResArray))
       }
       else {
         alert('Somwthing went wrong');
@@ -330,8 +333,6 @@ export class SmsContantComponent {
 
     });
   }
-
-
 
   showOption() {
     this.show = !this.show
@@ -344,13 +345,35 @@ export class SmsContantComponent {
     this.show2 = !this.show2
   }
 
-  selectedImage: any = ''
-
-  
 
 
+  allExcelNumbers: any;
+
+  onFileSelected(event: any): void {
+    
+  const file: File = event.target.files[0];
+  const reader: FileReader = new FileReader();
+
+  reader.onload = (e: any) => {  
+  const binaryString: string = e.target.result;
+  const workbook: XLSX.WorkBook = XLSX.read(binaryString, {type: 'binary'});
+  const sheetName: string = workbook.SheetNames[0];
+  const worksheet: XLSX.WorkSheet =workbook.Sheets[sheetName]; 
+  const contacts: any[]=XLSX.utils.sheet_to_json(worksheet, {header: 1});
+ const mobileNumbers: string[] =contacts.map(row => row[0]); 
+
+
+ const mobileNumbersString:string=mobileNumbers.join('\n');
+
+this.allExcelNumbers=mobileNumbersString
+};
+reader.readAsBinaryString(file);
+}
+
+importContacts():void{
+  this.smsForm.patchValue({mob:this.allExcelNumbers});
 }
 
 
-
+}
 
