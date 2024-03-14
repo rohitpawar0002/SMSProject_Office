@@ -88,8 +88,6 @@ export class SmsContantComponent {
 
   mobileNoCount(value: string): void {
 
-
-
     const mobileNumbers = value.split(',').map((number: any) => number.trim());
 
     this.validMobCount = 0;
@@ -175,6 +173,7 @@ export class SmsContantComponent {
         mob: ''
       })
       this.allselect = false
+      this.invalidMobCount=0
 
     }
 
@@ -263,7 +262,14 @@ export class SmsContantComponent {
 
 
 
+  onOptionImageSelected(e: any) {
+    
+    this.selectedImage = `http://localhost:4200/assets/${e.target.value}`
 
+    let imageValue = e.target.value
+    console.log('valueeee', this.selectedImage);
+
+  }
 
   senderArray = ['NUEVAS', 'TRKZIA']
 
@@ -341,14 +347,7 @@ export class SmsContantComponent {
   selectedImage: any = ''
 
   
-  onOptionImageSelected(e: any) {
-    
-    this.selectedImage = `http://localhost:4200/assets/${e.target.value}`
 
-    let imageValue = e.target.value
-    console.log('valueeee', this.selectedImage);
-
-  }
 
 }
 
