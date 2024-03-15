@@ -5,13 +5,11 @@
 }
 
 .time{
-    margin-top: 1rem;
     font-size: 14px;
 }
 
 .smsHeading{
-    margin-left: 3rem;
-    margin-top:0.5rem;
+
     font-size: 18px;
     
 }
@@ -66,9 +64,7 @@
 
 }
 .supportIconItems {
-    margin-top: 1rem;
-    margin-left:-6rem;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    margin-top: 1.2rem;
     font-size: 14px;
 
 }
@@ -78,7 +74,7 @@
 }
 .emailIcon{
     margin-left:2rem;
-    margin-top:1rem;
+    margin-top:1.2rem;
     cursor: pointer;
     font-size: 14px;
 
@@ -95,10 +91,9 @@
     color: white;
 }
 .personlogo{
-    margin-left:2rem;
-    margin-top: 0.6rem;
+    margin-top:0.8rem;
     font-size: 20px;
-}
+}   
 /* .msgCountBadge{
     position: absolute;
     margin-left: 0.5rem;

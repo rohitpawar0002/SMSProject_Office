@@ -1,7 +1,60 @@
+@media only screen and (min-width: 768px) {
+    .check1{
+        font-size: 14px;
+        margin-left: 13rem;
+        }
+        .badge1 span{
+            padding: 0.4rem;
+        } 
+        .badge2 span{
+            padding: 0.4rem;
+        }
+        .badgeinvalidMob span{
+            padding: 0.4rem;
+        }
+        .badge3 span{
+            padding:0.4rem;    
+        }
+        .subTable{
+            height: 10rem;
+            margin-left:2vw;
+            margin-right:2vw;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+            font-size: 14px;
+        }
+        .subTable3{
+            height: 10rem;
+            margin-left:2vw;
+            margin-right:2vw;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+            font-size: 14px;
+            }
+                
+            .insidecard{
+                margin-right: -1rem;
+                margin-left: -1rem;
+                cursor: pointer;
+            }  
+            .insidecard2{
+                margin-right: -1rem;
+                margin-left: -1rem;
+                height: 12rem;
+                cursor: pointer;
+            }  
+            .subTable4{
+                height: 10rem;
+                margin-left:2vw;
+                margin-right:2vw;
+                box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+            }
+            .insidecard2 select{
+                margin-left:5rem; 
+            }
+}
+
 .alert1{
-    margin-top: 1vh;
-    left: 2rem;
-    width:75vw ;
+   
+    /* width:73vw ; */
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     font-size: 14px;
 }
@@ -18,28 +71,11 @@ margin-left:1rem;
 width: 83vw;
 }
 
-.check1{
-margin-left:37rem;
-margin-top: 0.3rem;
-font-size: 14px;
-}
 
-.badge1{
-    margin-top: -1.4rem;
-}
-.badge1 span{
-    margin-left:7rem;
-    padding: 0.4rem;
-}
-.badgeinvalidMob{
-    margin-top: -1.4rem;
 
-}
-.badgeinvalidMob span{
-    margin-left: 1rem;
-    padding: 0.4rem;
 
-}
+
+
 hr{
    margin-left:-2rem;
    margin-right: -2rem;
@@ -50,20 +86,13 @@ hr{
     margin-top:1rem;
 
 }
-.badge2 span{
-    margin-left:7rem;
-    margin-top: 0.5rem;
-    padding: 0.4rem;
 
-}
-.badge3{
-    margin-top:-1rem;
-}
-.badge3 span{
+
+/* .badge3 span{
     margin-left: 32rem;
     padding: 0.4rem;
 
-}
+} */
 .btnConfirm{
     margin-left:30rem;
     font-size: 14px;
@@ -74,9 +103,9 @@ hr{
     font-size: 14px;
 
 }
-.row{
+/* .row{
     margin-left: 2rem;
-}
+} */
 .bigbox{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     font-size: 14px;
@@ -84,27 +113,8 @@ hr{
 
 }
 
-.subTable{
-    height: 10rem;
-    margin-left:2vw;
-    margin-right:2vw;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    font-size: 14px;
-}
 
-.subTable3{
-height: 10rem;
-margin-left:2vw;
-margin-right:2vw;
-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-font-size: 14px;
-}
-.subTable4{
-    height: 10rem;
-    margin-left:2vw;
-    margin-right:2vw;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
+
 select{
     font-size: 14px;
 
@@ -115,20 +125,9 @@ select{
 .minwidth2{
     height: 2.3rem;
 }
-.insidecard{
-    margin-right: -1rem;
-    margin-left: -1rem;
-    cursor: pointer;
-}
-.insidecard2{
-    margin-right: -1rem;
-    margin-left: -1rem;
-    height: 12rem;
-    cursor: pointer;
-}
-.insidecard2 select{
-    margin-left:5rem; 
-}
+
+
+
 .maxwidth{
     height: 16rem;
 }
@@ -153,7 +152,6 @@ select{
 
 .darkcolor{
     background-color: #343a40;
-    margin-top: -1rem;
   }
   .darkcolor .insidecard{
     background-color: #343a40;

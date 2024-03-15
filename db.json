@@ -26,7 +26,6 @@
       "Date": "2024-03-14T16:24:23.120Z",
       "msg": "Your My SMS verification Code id {var}. Do not share this code with others Team Nuevas"
     },
-
     {
       "id": "7ac8",
       "Success": true,
@@ -38,6 +37,19 @@
       "credit": 2,
       "mobilecount": 2,
       "Date": "2024-03-14T16:51:15.390Z",
+      "msg": "Your My SMS verification Code id {var}. Do not share this code with others Team Nuevas"
+    },
+    {
+      "id": "5fc8",
+      "Success": true,
+      "ErrorCode": "000,000,000",
+      "Message": "SMS Sent Successfully",
+      "MobileNo": "9730023006,7219550690,9168266868",
+      "Status": "Submited,Submited,Submited",
+      "senderId": "NUEVAS",
+      "credit": 3,
+      "mobilecount": 3,
+      "Date": "2024-03-15T09:25:51.655Z",
       "msg": "Your My SMS verification Code id {var}. Do not share this code with others Team Nuevas"
     }
   ]

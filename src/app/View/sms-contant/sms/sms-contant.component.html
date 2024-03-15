@@ -1,21 +1,21 @@
 <div [ngClass]="showThim? 'darkcolor':'brightcolor'"  >
-<div class="te" [ngClass]="showMain? 'minMaim':'maxMain'">
+<div class="col-md-12" [ngClass]="showMain? 'minMaim':'maxMain'">
 
 
   <form class="p-2" [formGroup]="smsForm">
 
-    <div class="alert alert1 alert-primary" role="alert">
-      This is a primary alert—check it out!
-    </div>
     <div class="row">
+      <div class="alert alert-primary alert1 w-md-100" role="alert">
+        This is a primary alert—check it out!
+      </div>
       <div class="card col-md-8 bigbox pe-3">
         <div class="card-header fw-bold" >
           <i class="bi bi-list"></i> Send SMS
         </div>
         <div class="card-body">
           <div class="d-flex">
-            <label class="col-md-2 control-lable mt-1">Sender ID</label>
-            <select class="form-select col-10" formControlName="sender"
+            <label class="control-lable">Sender ID</label>
+            <select class="form-select col-md-10 mx-4" formControlName="sender"
               [ngClass]="{'is-invalid':submitted && smsForm.get('sender')?.errors}" aria-label="Default select example">
               <option value="" selected>Open this select menu</option>
               <option *ngFor="let senderitem of senderArray">{{senderitem}}</option>
@@ -23,8 +23,8 @@
           </div>
           <hr>
           <div class="d-flex ">
-            <label class="col-md-2 control-lable">Template</label>
-            <select class="form-select col-10" formControlName="templateid" (change)="changevalue($event)"
+            <label class="control-lable">Template</label>
+            <select class="form-select col-md-10 mx-4" formControlName="templateid" (change)="changevalue($event)"
               [ngClass]="{'is-invalid':submitted && smsForm.get('templateid')?.errors}"
               aria-label="Default select example">
               <option value="" selected>Open this select menu</option>
@@ -36,47 +36,48 @@
           <hr>
 
           <div class="d-flex">
-            <label class="col-md-2 control-lable">Mobile No</label>
-            <textarea class="form-control col-10" placeholder="You can send SMS in batches up to 50,000 at a time"
+            <label class="control-lable">Mobile No</label>
+            <textarea class="form-control col-md-10 mx-3" placeholder="You can send SMS in batches up to 50,000 at a time"
               ng-model="number" formControlName="mob" [ngClass]="{'is-invalid':submitted && smsForm.get('mob')?.errors}"
               id="exampleFormControlTextarea1" rows="3"></textarea>
           </div>
-          <div class="form-check check1">
-            <input class="form-check-input" type="checkbox" [checked]="checkBoxClr" (change)="checkBoxFun($event)"
-              value="" formControlName="clearChekBox" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-              Clear list
-            </label>
-          </div>
-          <div class="d-flex">
-            <div class="badge1">
+           <div class="d-flex ps-md-5">
+            <div class="badge1 ps-md-4 mx-md-1 p-md-2">
               <span class="badge badge-secondary">Mobile No Count:{{validMobCount}}</span>
             </div>
-            <div class="badgeinvalidMob">
+            <div class="badgeinvalidMob p-md-2">
               <span class="badge badge-secondary">Invalid Mobile No Count:{{invalidMobCount}}</span>
+            </div>
+            <div class="form-check mt-2 check1">
+              <input class="form-check-input" type="checkbox" [checked]="checkBoxClr" (change)="checkBoxFun($event)"
+                value="" formControlName="clearChekBox" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">Clear list</label>
             </div>
           </div>
           <hr>
-          <div class="alert alert-primary col-12" role="alert">
+          <div class="alert alert-primary col-md-12" role="alert">
             One variable = 30 characters only. Enter the number of characters accordingly.
           </div>
-          <div class="form-check check2">
+          <div class="form-check mx-5">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
             <label for="ContentPlaceHolder1_chkUnicode" style="font-weight: bold;">Unicode (Hindi, Marathi SMS)</label>
           </div>
-          <div class="d-flex mt-5">
+          <div class="d-flex">
 
-            <label class="col-md-2 control-lable">Message</label>
-            <textarea class="form-control col-10" formControlName="msg"
+            <label class="control-lable">Message</label>
+            <textarea class="form-control col-md-10 mx-2" formControlName="msg"
               [ngClass]="{'is-invalid':submitted && smsForm.get('msg')?.errors}" id="exampleFormControlTextarea1"
               rows="3"></textarea>
           </div>
-          <div class="badge2">
-            <span class="badge badge-secondary">Count:{{textlength}} Text:{{limit}}</span>
+          <div class="d-flex ps-md-5">
+            <div  class="badge2 ps-md-3 mt-2 ps-5">
+              <span class="badge badge-secondary">Count:{{textlength}} Text:{{limit}}</span>
           </div>
-          <div class="badge3">
+
+          <div class="badge3 mt-md-2 mx-2 mt-2">
             <span class="badge badge-primary">Total Cradit Charge:{{creditcount}}</span>
           </div>
+        </div>
         </div>
         <div class="card-footer" style="margin-right: -2%; margin-left:-2%;">
           <div class="d-flex">
@@ -84,15 +85,14 @@
               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
               <label for="ContentPlaceHolder1_chkUnicode" style="font-weight: bold;">Schedule</label>
             </div>
-
-            <div class="btnConfirm">
+            <div class="col-md-10 text-right">
               <button type="submit" (click)="onsubmit()" class="btn btn-primary">Confirm</button>
             </div>
           </div>
           <hr style="margin-right: -2%; margin-left:-2%;">
           <div class="d-flex">
-            <label class="col-md-2 control-lable">Test SMS</label>
-            <textarea class="form-control col-8" placeholder="Enter the mobile number" id="exampleFormControlTextarea1"
+            <label class="control-lable">Test SMS</label>
+            <textarea class="form-control col-md-8 mx-4" placeholder="Enter the mobile number" id="exampleFormControlTextarea1"
               rows="2"></textarea>
             <div class="btnTestSMS">
               <button class="btn btn-warning">Test SMS</button>
@@ -105,10 +105,9 @@
         <div class="card text-center subTable" [ngClass]="show? 'maxwidth': 'minwidth'">
           <div class="card-header d-flex fw-bold">
   
-            <i class="bi bi-list mx-2"></i> Select Option<div (click)="showOption()"><i class="bi bi-box-arrow-down"
-                style="margin-left: 6rem;"></i></div>
+            <i class="bi bi-list mx-2"></i><div class="mx-md-1">Select Option</div><div class="ps-5 mx-3" (click)="showOption()"><i class="bi bi-box-arrow-down"></i></div>
           </div>
-          <div class="card-body col-md-11 mt-1 mx-3">
+          <div class="card-body col-md-11 mt-1 mx-md-3">
   
             <div class="card text-center insidecard" *ngIf="show">
               <div class="card-header">
@@ -156,11 +155,10 @@
      
         </div>
 
-        <div class="card text-center mt-4 subTable3" [ngClass]="show2? 'maxwidth2': 'minwidth2'">
+        <div class="card text-center mt-md-4 mt-4 subTable3" [ngClass]="show2? 'maxwidth2': 'minwidth2'">
           <div class="card-header d-flex fw-bold" (click)="showOption2()">
   
-            <i class="bi bi-list mx-2"></i> Select Chatboat<div (click)="showOption"><i class="bi bi-box-arrow-down"
-              style="margin-left: 6rem;"></i></div>
+            <i class="bi bi-list"></i><div class="mx-md-1">Select Chatboat</div><div class="ps-5 mx-3" (click)="showOption"><i class="bi bi-box-arrow-down"></i></div>
           </div>
           <div class="card-body chatboat" *ngIf="show2">
             <select class="form-select" formControlName="sender" aria-label="Default select example">
@@ -170,17 +168,15 @@
   
           </div>
   
-        </div>
+        </div> 
   
   
-  
-        <div class="card text-center mt-4 subTable4" [ngClass]="mediaShow? 'maxheigth': 'minheigth'">
+        <div class="card text-center mt-md-4 mt-4 subTable4" [ngClass]="mediaShow? 'maxheigth': 'minheigth'">
           <div class="card-header d-flex fw-bold">
   
-            <i class="bi bi-list mx-2"></i> Select Media<div (click)="showOptionMedia()"><i class="bi bi-box-arrow-down"
-                style="margin-left: 6rem;"></i></div>
+           <i class="bi bi-list"></i><div class="mx-md-1">Select Media</div><div (click)="showOptionMedia()" class="ps-5 mx-4"><i class="bi bi-box-arrow-down"></i></div>
           </div>
-          <div class="card-body mt-1 col-md-11 mx-3">
+          <div class="card-body mt-md-1 col-md-11 mx-md-3">
   
             <div class="card text-center insidecard2" *ngIf="mediaShow">
               <div class="card-header">
@@ -196,25 +192,24 @@
                 </ul>
               </div>
               <div class="card-body">
-                <div *ngIf="mediaImgShow" class="form-check" style="margin-left:-6rem;">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <select class="form-select col-8" (change)="onOptionImageSelected($event)" aria-label="Default select example">
+                <div *ngIf="mediaImgShow" class="form-check me-md-5">
+                  <!-- <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> -->
+                  <select class="form-select col-md-12" (change)="onOptionImageSelected($event)" aria-label="Default select example">
                     <option value="" selected>Open this select menu</option>
                     <option value="image1.jpg">Image1</option>
                     <option value="image2.jpg">Image2</option>
                     <option value="img3.jpg">Image3</option>
   
-  
                   </select>
-                  <div class="mt-3 ms-3">
+                  <div class="mt-md-3 ms-md-3">
                     <img [src]="selectedImage" width="120rem">
                   </div>
                 </div>
   
                 <div *ngIf="mdediaVideoshow">
-                  <div class="form-check" style="margin-left:-6rem;">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <select class="form-select col-8" (change)="onOptionVideoSelected($event)" aria-label="Default select example">
+                  <div class="form-check me-md-5">
+                    <!-- <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> -->
+                    <select class="form-select col-md-12" (change)="onOptionVideoSelected($event)" aria-label="Default select example">
                       <option value="" selected>Open this select menu</option>
                       <option value="movie.mp4">Video1</option>
                       <option value="movie2.mp4">Video2</option>

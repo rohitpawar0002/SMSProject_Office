@@ -10,7 +10,7 @@ import { SidenavService } from 'src/app/Services/sidenav.service';
 })
 export class NavbarComponent implements OnInit {
   CurrentDate = new Date();
-  UserName: any;
+  UserName='demotr';
   show: boolean = false;
   count: any;
 
@@ -22,21 +22,16 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.smsservice.localdata();
     this.loadcount()
   }
   
   loadcount(){
-    this.UserName=this.smsservice.userName
-    // this.UserName='demotr'
     this.smsservice.getBalance(this.UserName).subscribe({
-      next:((res:any)=>{
+      next:((res:any)=>{        
         this.count=res.SMSBalance
-      })
-     
+      })     
     })
-    console.log('count',this.UserName);
-
+      
    }
 
 

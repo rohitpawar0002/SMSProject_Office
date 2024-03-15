@@ -10,13 +10,13 @@ export class ServicesService {
 
   userName:any=[]; 
 
-localdata(){
-  this.userName=(localStorage.getItem('count') || '');
-  return
-}
+// localdata(){
+//   this.userName=(localStorage.getItem('count'));
+//   return
+// }
 
-getBalance(username:any){
- return this.http.get('http://api.sms123.in/api/Credit/Credit?username='+username)
+getBalance(data:any){
+ return this.http.get('http://api.sms123.in/api/Credit/Credit?username='+data);
 
 }
 

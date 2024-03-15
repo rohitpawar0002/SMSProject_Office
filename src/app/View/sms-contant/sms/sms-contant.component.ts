@@ -38,7 +38,7 @@ export class SmsContantComponent {
   mobcount: any;
   pooArray: any = [];
 
-  poolMobile: any = '9730023006,\n7219550690';
+  poolMobile: any = '9730023006\n7219550690';
   testMobile: any = '9168266868'
 
   allselect: boolean = false;
@@ -96,7 +96,7 @@ export class SmsContantComponent {
 
   mobileNoCount(value: string): void {
 
-    const mobileNumbers = value.split(',').map((number: any) => number.trim());
+    const mobileNumbers = value.split('\n').map((number: any) => number.trim());
 
     this.validMobCount = 0;
     this.invalidMobCount = 0;
@@ -173,7 +173,7 @@ export class SmsContantComponent {
   onAllselect(e: any) {
     if (e.target.checked) {
       this.allselect = true;
-      let selectedNumbers = this.poolMobile + ',\n' + this.testMobile;
+      let selectedNumbers = this.poolMobile + '\n' + this.testMobile;
       this.smsForm.patchValue({
         mob: selectedNumbers
       });
@@ -196,7 +196,7 @@ export class SmsContantComponent {
       let currentNumbers = this.smsForm.get('mob')?.value;
 
       if (!currentNumbers.includes(this.poolMobile)) {
-        currentNumbers ? currentNumbers += ',\n' + this.poolMobile : currentNumbers += this.poolMobile;
+        currentNumbers ? currentNumbers += '\n' + this.poolMobile : currentNumbers += this.poolMobile;
 
         // currentNumbers += this.poolMobile;
         this.smsForm.patchValue({
@@ -207,7 +207,7 @@ export class SmsContantComponent {
       }
     }
     else {
-      const regex = new RegExp('(,\\n)?' + this.poolMobile + '(,\\n)?', 'g');
+      const regex = new RegExp('(\\n)?' + this.poolMobile + '(\\n)?', 'g');
       let replaceVar = this.smsForm.controls['mob'].value.replace(regex, '');
 
       this.smsForm.patchValue({
@@ -223,7 +223,7 @@ export class SmsContantComponent {
     if (e.target.checked) {
       let currentNumbers = this.smsForm.get('mob')?.value || '';
       if (!currentNumbers.includes(this.testMobile)) {
-        currentNumbers ? currentNumbers += ',\n' + this.testMobile : currentNumbers += this.testMobile;
+        currentNumbers ? currentNumbers += '\n' + this.testMobile : currentNumbers += this.testMobile;
         this.smsForm.patchValue({
           mob: currentNumbers
         });
@@ -231,7 +231,7 @@ export class SmsContantComponent {
         this.checkBoxClr = false;
       }
     } else {
-      const regex = new RegExp('(,\\n)?' + this.testMobile + '(,\\n)?', 'g');
+      const regex = new RegExp('(\\n)?' + this.testMobile + '(\\n)?', 'g');
 
       let replaceVar = this.smsForm.controls['mob'].value.replace(regex, '');
       this.smsForm.patchValue({

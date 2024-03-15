@@ -1,4 +1,4 @@
-<div class="container mt-2">
+<div class="container mt-2" *ngIf="!isContainer2Visible">
 
   <button class="btn btn-warning" (click)="OnDownloadReport()">Download Report</button>
   <div class="content-table">
@@ -21,13 +21,41 @@
         <td>{{item.msg}}</td>
         <td>{{item.mobilecount}}</td>
         <td>{{item.credit}}</td>
-        <td (click)="OnshowSubTable()" routerLink="../Resreport/{{item.id}}"><i class="bi bi-eye"></i></td>
+        <td class="eyeIcon" (click)="toggleVisibility(i)"><i class="bi bi-eye"></i></td>
         <!-- <td>{{item.Status}}</td> -->
 
       </tr>
     </tbody>
   </table>
 </div>
-
-
 </div>
+
+<div class="container mt-2" *ngIf="selectedItemIndex!==null && isContainer2Visible" [ngClass]="{'container2':isContainer2Visible,'d-none':!isContainer2Visible}">
+  <div class="content-table">
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">MobileNo</th>
+              <th scope="col">SenderId</th>
+              <th scope="col">Status</th>
+              <!-- <th scope="col">Status</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-light border border-bottom-2">
+              <td>{{ArrayReport[selectedItemIndex].Date | date:"short"}}</td>
+              <td>{{ArrayReport[selectedItemIndex].MobileNo}}</td>
+              <td>{{ArrayReport[selectedItemIndex].senderId}}</td>
+              <td>{{ArrayReport[selectedItemIndex].Status}}</td>
+              <!-- <td>{{item.Status}}</td> -->
+      
+            </tr>
+          </tbody>
+        </table>
+        <div class="text-right me-5 mb-1">
+        <button class="btn btn-info" (click)="toggleVisibility(null)">Back</button>
+      </div>
+      </div>
+    
+    </div>
