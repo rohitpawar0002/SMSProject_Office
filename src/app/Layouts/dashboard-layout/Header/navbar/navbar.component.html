@@ -1,76 +1,143 @@
 <nav class="navbar navbar-expand-lg navbar-dark mainBar">
-    <div class="navelemets">  
+  <div class="d-flex justify-content-between w-100">
+    <div class="d-flex">
+      <div class="smsHeading">
+        <a class="navbar-brand">SMS123</a
+        ><i class="bi bi-list fa-lg mx-5 mt-3" (click)="toggelNav()"></i>
+      </div>
 
-      
-  <div class="smsHeading">
-    <a class="navbar-brand">SMS123</a><i class="bi bi-list fa-lg mx-5 mt-3" (click)="toggelNav()"></i>
-  </div>
+      <div class="time">
+        <p>Date Time: {{ CurrentDate | date : "M/d/yyyy-h:mm:ss a" }}</p>
+      </div>
 
- 
-  
-    <div class="time">
-    <p>Date Time: {{CurrentDate | date :'M/d/yyyy-h:mm:ss a'}}</p>
-  </div>
- 
-
-  <div class="collapse navbar-collapse dropdownBalance" id="navbarSupportedContent" >
-    <ul class="navbar-nav mr-auto">        
-      <li class="nav-item">
-        <a class="nav-link text-white" id="navbarDropdown" (click)="loadcount()" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Balance
-        </a>
-        <div class="dropdown-menu balanceitems" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item">SMS:{{count}}</a>
-          <a class="dropdown-item">MySMS: 0</a>
-          <a class="dropdown-item">Notification: 0</a>
-          <a class="dropdown-item">Whatsapp: 0</a>
-          <a class="dropdown-item">VoiceCall: 0</a>
-       </div>
-      </li>
-    </ul>       
-  </div>
-   
-    <div class="supportIcon">
-        <div class="dropdown">
-            <div ngbDropdown class="d-inline-block">
-                <a href="javascript:;" class="d-flex align-items-center text-white text-decoration-none" id="dropdownBasic1" ngbDropdownToggle>
-                    <i class="bi bi-exclamation-triangle-fill fa-lg"></i>
-                </a>
-                <div class="supportIconItems" ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                    <a class="dropdown-item" style="background-color: navy; color: white;">Support Informaton</a>
-                    <li><a class="dropdown-item" ><i class="bi bi-telephone-fill "></i> +91 8600999599</a></li>
-                    <li><a class="dropdown-item" ><i class="bi bi-envelope-fill "></i> support@nuevastech.com</a></li>
-                    <li><a class="dropdown-item" ><i class="bi bi-door-open-fill "></i> KYC Registration</a></li>
-                    <li><a class="dropdown-item" ><i class="bi bi-card-list "></i> DLT Approved SenderID List</a></li>
-                </div>
+      <div class="dropdownBalance" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto pt-2">
+          <li class="nav-item">
+            <a
+              class="nav-link text-white"
+              id="navbarDropdown"
+              (click)="loadcount()"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Balance
+            </a>
+            <div
+              class="dropdown-menu balanceitems"
+              aria-labelledby="navbarDropdown"
+            >
+              <a class="dropdown-item">SMS:{{ count }}</a>
+              <a class="dropdown-item">MySMS: 0</a>
+              <a class="dropdown-item">Notification: 0</a>
+              <a class="dropdown-item">Whatsapp: 0</a>
+              <a class="dropdown-item">VoiceCall: 0</a>
             </div>
-        </div>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <div class="emailIcon">                  
-                <div ngbDropdown class="d-inline-block">
-                  
-                  <div class="msgCountBadge">
-                  <span class="badge badge-danger">0</span>
-                </div>
-                    <a class="d-flex align-items-center text-white" id="dropdownBasic1" ngbDropdownToggle>
-                        <i class="bi bi-envelope-exclamation-fill fa-lg"></i>
-                    </a>
-                    <div class="emailIconitems" ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                        <a class="dropdown-item" style="background-color: navy; color: white;">You have 0 new notifications</a>
-                        <div class="dropdown-divider"></div>
-                        <li><i class="bi bi-envelope-fill fa-lg mx-3"></i><a class="dropdown-item">From Admin</a></li>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" style="background-color:lightgray;">View all notifications</a>
-
-                    </div>
-                </div>                    
+    <div class="d-flex w-50 justify-content-between ">
+      <div class="d-none d-md-block">
+        <p>
+          <marquee
+            style="
+              color: #94ee08;
+              font-size: 15px;
+              font-weight: bold;
+              padding-top: 7px;
+            "
+            >View DLT Approved Sender ID List in Support Section 🡺
+          </marquee>
+        </p>
       </div>
-      <i class="bi bi-person-fill personlogo"></i>
+      <div class="d-flex me-1 me-md-5">
+        <div class="supportIconItems">
+          <div class="dropdown">
+            <div ngbDropdown class="d-inline-block">
+              <a
+                href="javascript:;"
+                class="d-flex align-items-center text-white text-decoration-none"
+                id="dropdownBasic1"
+                ngbDropdownToggle
+              >
+                <i class="bi bi-exclamation-triangle-fill fa-lg"></i>
+              </a>
+              <div
+                class="supportIconItems"
+                ngbDropdownMenu
+                aria-labelledby="dropdownBasic1"
+              >
+                <a
+                  class="dropdown-item"
+                  style="background-color: navy; color: white"
+                  >Support Informaton</a
+                >
+                <li>
+                  <a class="dropdown-item"
+                    ><i class="bi bi-telephone-fill"></i> +91 8600999599</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item"
+                    ><i class="bi bi-envelope-fill"></i>
+                    support@nuevastech.com</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item"
+                    ><i class="bi bi-door-open-fill"></i> KYC Registration</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item"
+                    ><i class="bi bi-card-list"></i> DLT Approved SenderID
+                    List</a
+                  >
+                </li>
+              </div>
+            </div>
+          </div>
+        </div>
 
-</div> 
- <div class="runtingText">
-    <p><marquee style="color: #94ee08;font-size: 15px; font-weight: bold; padding-top: 7px;">View DLT Approved Sender ID List in Support Section 🡺 </marquee></p>
-</div> 
-
+        <div class="emailIcon">
+          <div ngbDropdown class="d-inline-block">
+            <div class="msgCountBadge">
+              <span class="badge badge-danger">0</span>
+            </div>
+            <a
+              class="d-flex align-items-center text-white"
+              id="dropdownBasic1"
+              ngbDropdownToggle
+            >
+              <i class="bi bi-envelope-exclamation-fill fa-lg"></i>
+            </a>
+            <div
+              class="emailIconitems"
+              ngbDropdownMenu
+              aria-labelledby="dropdownBasic1"
+            >
+              <a
+                class="dropdown-item"
+                style="background-color: navy; color: white"
+                >You have 0 new notifications</a
+              >
+              <div class="dropdown-divider"></div>
+              <li>
+                <i class="bi bi-envelope-fill fa-lg mx-3"></i
+                ><a class="dropdown-item">From Admin</a>
+              </li>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" style="background-color: lightgray"
+                >View all notifications</a
+              >
+            </div>
+          </div>
+        </div>
+        <i class="bi bi-person-fill personlogo"></i>
+      </div>
+    </div>
+  </div>
 </nav>

@@ -1,11 +1,15 @@
-.routerOutlet {
-  float: left;
-  overflow-y: auto;
-  height: 92vh;
+@media only screen and (min-width: 768px) {
+  .routerOutlet {
+    float: left;
+    overflow-y: auto;
+    height: 92vh;
+  }
+  .maxwidth {
+    width: 100vw;
+  }
+  .minwidth {
+    width: 100vw;
+  }
 }
-.maxwidth{
-  width: 100vw;
-}
-.minwidth{
-  width: 100vw;
-}
+
+

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, booleanAttribute } from '@angular/core';
 import { ReposrtService } from 'src/app/Services/reposrt.service';
 import * as XLSX from 'xlsx';
 
@@ -39,6 +39,19 @@ export class ReportComponent {
     XLSX.utils.book_append_sheet(wb,ws,'Sheet1');
     XLSX.writeFile(wb,'report.xlsx');
 
+  }
+
+showTable:boolean=false;
+hideTable:boolean=true;
+
+  OnshowSubTable(){
+    this.showTable=true;
+    this.hideTable=false
+
+  }
+  OnBackTable(){
+    this.showTable=false;
+    this.hideTable=true;
   }
 
 }

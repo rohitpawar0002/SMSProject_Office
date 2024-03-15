@@ -315,7 +315,10 @@ export class SmsContantComponent {
         this.service.userName = this.smsForm.value.username;
         localStorage.setItem('count', JSON.stringify(this.service.userName));
         this.reposrtService.ResArray = res;
-        res['Date'] = this.datee
+        res['senderId']=this.smsForm.controls['sender'].value;
+        res['credit']=this.creditcount;
+        res['mobilecount']=this.validMobCount;
+        res['Date'] = this.datee;
         res['msg'] = this.smsForm.controls['msg'].value;
         this.reposrtService.postReportAPI(res).subscribe({
           next: (res: any) => {

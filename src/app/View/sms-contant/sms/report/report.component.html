@@ -5,28 +5,29 @@
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Success</th>
-        <th scope="col">ErrorCode</th>
-        <th scope="col">Message</th>
-        <th scope="col">MobileNo</th>
-        <th scope="col">Status</th>
+        <th scope="col">Sr.No</th>
         <th scope="col">Date</th>
-
+        <th scope="col">Message</th>
+        <th scope="col">No.of SMS</th>
+        <th scope="col">Credits</th>
+        <th scope="col">View</th>
+        <!-- <th scope="col">Status</th> -->
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of ArrayReport; index as i" class="bg-light border border-bottom-2">
         <th scope="row">{{i+1}}</th>
-        <td>{{item.Success}}</td>
-        <td>{{item.ErrorCode}}</td>
-        <td>{{item.Message}}</td>
-        <td>{{item.MobileNo}}</td>
-        <td>{{item.Status}}</td>
         <td>{{item.Date | date:"short"}}</td>
+        <td>{{item.msg}}</td>
+        <td>{{item.mobilecount}}</td>
+        <td>{{item.credit}}</td>
+        <td (click)="OnshowSubTable()" routerLink="../Resreport/{{item.id}}"><i class="bi bi-eye"></i></td>
+        <!-- <td>{{item.Status}}</td> -->
 
       </tr>
     </tbody>
   </table>
 </div>
+
+
 </div>
