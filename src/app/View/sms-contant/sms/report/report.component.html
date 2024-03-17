@@ -1,61 +1,69 @@
-<div class="container mt-2" *ngIf="!isContainer2Visible">
-
-  <button class="btn btn-warning" (click)="OnDownloadReport()">Download Report</button>
+<div class="container mt-2" *ngIf="!selectedItemIndex">
+  <button class="btn btn-warning" (click)="OnDownloadReport()">
+    Download Report
+  </button>
   <div class="content-table">
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Sr.No</th>
-        <th scope="col">Date</th>
-        <th scope="col">Message</th>
-        <th scope="col">No.of SMS</th>
-        <th scope="col">Credits</th>
-        <th scope="col">View</th>
-        <!-- <th scope="col">Status</th> -->
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of ArrayReport; index as i" class="bg-light border border-bottom-2">
-        <th scope="row">{{i+1}}</th>
-        <td>{{item.Date | date:"short"}}</td>
-        <td>{{item.msg}}</td>
-        <td>{{item.mobilecount}}</td>
-        <td>{{item.credit}}</td>
-        <td class="eyeIcon" (click)="toggleVisibility(i)"><i class="bi bi-eye"></i></td>
-        <!-- <td>{{item.Status}}</td> -->
-
-      </tr>
-    </tbody>
-  </table>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Sr.No</th>
+          <th scope="col">Date</th>
+          <th scope="col">Message</th>
+          <th scope="col">No.of SMS</th>
+          <th scope="col">Credits</th>
+          <th scope="col">View</th>
+          <!-- <th scope="col">Status</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let item of ArrayReport; index as i"
+          class="bg-light border border-bottom-2"
+        >
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ item.Date | date : "short" }}</td>
+          <td>{{ item.msg }}</td>
+          <td>{{ item.mobilecount }}</td>
+          <td>{{ item.credit }}</td>
+          <td class="eyeIcon" (click)="toggleVisibility(item)">
+            <i class="bi bi-eye"></i>
+          </td>
+          <!-- <td>{{item.Status}}</td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-</div>
 
-<div class="container mt-2" *ngIf="selectedItemIndex!==null && isContainer2Visible" [ngClass]="{'container2':isContainer2Visible,'d-none':!isContainer2Visible}">
+<div class="container mt-2" *ngIf="selectedItemIndex">
   <div class="content-table">
-      <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Date</th>
-              <th scope="col">MobileNo</th>
-              <th scope="col">SenderId</th>
-              <th scope="col">Status</th>
-              <!-- <th scope="col">Status</th> -->
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="bg-light border border-bottom-2">
-              <td>{{ArrayReport[selectedItemIndex].Date | date:"short"}}</td>
-              <td>{{ArrayReport[selectedItemIndex].MobileNo}}</td>
-              <td>{{ArrayReport[selectedItemIndex].senderId}}</td>
-              <td>{{ArrayReport[selectedItemIndex].Status}}</td>
-              <!-- <td>{{item.Status}}</td> -->
-      
-            </tr>
-          </tbody>
-        </table>
-        <div class="text-right me-5 mb-1">
-        <button class="btn btn-info" (click)="toggleVisibility(null)">Back</button>
-      </div>
-      </div>
-    
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">MobileNo</th>
+          <th scope="col">SenderId</th>
+          <th scope="col">Status</th>
+          <!-- <th scope="col">Status</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="bg-light border border-bottom-2"
+          *ngFor="let contact of numberToSplit; index as i"
+        >
+          <td>{{ selectedRow.Date | date : "short" }}</td>
+          <td>{{ contact }}</td>
+          <td>{{ selectedRow.senderId }}</td>
+          <td>{{ selectedRow.Status.split(",")[i] }}</td>
+          <!-- <td>{{item.Status}}</td> -->
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-right me-5 mb-1">
+      <button class="btn btn-info" (click)="toggleVisibility(null)">
+        Back
+      </button>
     </div>
+  </div>
+</div>

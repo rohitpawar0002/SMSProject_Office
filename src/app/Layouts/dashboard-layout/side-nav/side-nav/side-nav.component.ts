@@ -18,12 +18,16 @@ export class SideNavComponent implements OnInit {
     this.sidenavService.showNav$.subscribe({
       next:(res)=>{
         this.show = res;
+        // console.log(this.show, this.thimShow);
+        
       }
     })
   }
 
   thimeChange(sh:any) {
+    
     this.thimShow = sh;
+    console.log(this.thimShow);
     this.showthimeService.showThime.next(this.thimShow=sh);
 
   }

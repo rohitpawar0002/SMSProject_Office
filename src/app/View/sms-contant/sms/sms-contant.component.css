@@ -36,8 +36,6 @@
                 cursor: pointer;
             }  
             .insidecard2{
-                margin-right: -1rem;
-                margin-left: -1rem;
                 height: 12rem;
                 cursor: pointer;
             }  
@@ -46,9 +44,6 @@
                 margin-left:2vw;
                 margin-right:2vw;
                 box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-            }
-            .insidecard2 select{
-                margin-left:5rem; 
             }
 }
 
@@ -112,9 +107,6 @@ hr{
     /* left: 2vw; */
 
 }
-
-
-
 select{
     font-size: 14px;
 
@@ -125,9 +117,6 @@ select{
 .minwidth2{
     height: 2.3rem;
 }
-
-
-
 .maxwidth{
     height: 16rem;
 }
