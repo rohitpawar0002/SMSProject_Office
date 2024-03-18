@@ -50,6 +50,7 @@ export class SmsContantComponent {
   mdediaVideoshow: boolean = false;
   mediaImgShow: boolean = true;
 
+  temp:any;
 
   constructor(private service: ServicesService, private formbuilder: FormBuilder,
     private sidebarService: SidenavService, private reposrtService: ReposrtService,
@@ -91,6 +92,8 @@ export class SmsContantComponent {
     this.smsForm.get('mob')!.valueChanges.subscribe(value => {
       this.mobileNoCount(value)
     })
+
+    this.messageCount()
   }
   datee = new Date();
 
@@ -154,6 +157,7 @@ export class SmsContantComponent {
   Onmeidavideo() {
     this.mdediaVideoshow = true;
     this.mediaImgShow = false;
+
   }
 
 
@@ -179,6 +183,7 @@ export class SmsContantComponent {
       });
       this.mobileNoCount(selectedNumbers);
       this.checkBoxClr = false;
+      
     }
     else {
 
@@ -242,17 +247,26 @@ export class SmsContantComponent {
   }
 
   selectedImage: any = ''
+  Imageavalable:boolean=false;
 
   onOptionImageSelected(e: any) {
     let imageValue = e.target.value
     this.selectedImage = `http://localhost:4200/assets/${imageValue}`
 
+    if(imageValue==""){
+      this.Imageavalable=false;
+    }
+    else{
+      this.Imageavalable=true;
+    }
+
     console.log('valueeee', this.selectedImage);
 
     this.templateArray = this.templateArray.map(template => {
-      template.key = template.key.replace('{var}', this.selectedImage);
+     this.temp= template.key = template.key.replace('{var}', this.selectedImage);
       return template;
     });
+    
   }
 
   selectedVideo: any = ''
@@ -261,7 +275,7 @@ export class SmsContantComponent {
   onOptionVideoSelected(e: any) {
 
     let videoValue = e.target.value
-    this.selectedVideo = `../../../../assets/${videoValue}`
+    this.selectedVideo = `http://localhost:4200/assets/${videoValue}`
 
 
     if (videoValue == "") {
@@ -270,6 +284,11 @@ export class SmsContantComponent {
     else {
       this.videoAvalable = true;
     }
+
+    this.templateArray=this.templateArray.map(template=>{
+      template.key=template.key.replace('{var}',this.selectedVideo);
+      return template;
+    });
 
   }
 
@@ -374,6 +393,9 @@ reader.readAsBinaryString(file);
 }
 
 importContacts():void{
+  if(!this.allExcelNumbers){
+    alert('First Choose Your File')
+  }
   this.smsForm.patchValue({mob:this.allExcelNumbers});
 }
 

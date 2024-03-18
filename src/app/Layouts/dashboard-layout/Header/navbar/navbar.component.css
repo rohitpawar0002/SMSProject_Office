@@ -57,8 +57,19 @@
   cursor: pointer;
   font-size: 14px;
 }
+@media only screen and (min-width: 768px) {
+
 .supportIconItems {
   font-size: 14px;
+  margin-top: 0.6rem;
+  padding-right: 1.6rem;
+}
+}
+.supportIconItems {
+  font-size: 14px;
+}
+a{
+  cursor: pointer;
 }
 .supportIconItems a:hover {
   background-color: #4d7496;
@@ -67,6 +78,7 @@
 .emailIcon {
   cursor: pointer;
   font-size: 14px;
+  margin-top: 0.1rem;
 }
 .emailIconitems {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -80,6 +92,9 @@
 .personlogo {
   font-size: 20px;
 }
+.loginicon{
+  padding-top: 0.7rem;
+} 
 /* .msgCountBadge{
     position: absolute;
     margin-left: 0.5rem;
@@ -91,4 +106,10 @@
   height: 0.8rem;
   margin-left: 0.5rem;
   width: 1.2rem;
+}
+.dropdown-menu-custom {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
 }

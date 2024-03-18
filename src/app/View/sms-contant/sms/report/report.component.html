@@ -49,11 +49,9 @@
       </thead>
       <tbody>
         <tr
-          class="bg-light border border-bottom-2"
-          *ngFor="let contact of numberToSplit; index as i"
-        >
+          class="bg-light border border-bottom-2" *ngFor="let contact of numberToSplit; index as i">
           <td>{{ selectedRow.Date | date : "short" }}</td>
-          <td>{{ contact }}</td>
+          <td>{{contact}}</td>
           <td>{{ selectedRow.senderId }}</td>
           <td>{{ selectedRow.Status.split(",")[i] }}</td>
           <!-- <td>{{item.Status}}</td> -->

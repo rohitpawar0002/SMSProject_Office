@@ -1,7 +1,5 @@
 <div [ngClass]="showThim? 'darkcolor':'brightcolor'">
   <div class="col-md-12" [ngClass]="showMain? 'minMaim':'maxMain'">
-
-
     <form class="p-2" [formGroup]="smsForm">
 
       <div class="row">
@@ -110,9 +108,9 @@
           <div class="card text-center mt-4 mt-md-0 subTable" [ngClass]="show? 'maxwidth': 'minwidth'">
             <div class="card-header d-flex fw-bold">
 
-              <i class="bi bi-list mx-2"></i>
-              <div class="mx-md-1">Select Option</div>
-              <div class="ps-5 mx-3" (click)="showOption()"><i class="bi bi-box-arrow-down"></i></div>
+              <i class="bi bi-list px-md-2 ps-2"></i>
+              <div class="ps-2 ps-md-0">Select Option</div>
+              <div class="ps-5 mx-3 ps-md-5 ms-md-5" (click)="showOption()"><a><i class="bi bi-box-arrow-down"></i></a></div>
             </div>
             <div class="card-body col-md-11 mt-1 mx-md-3">
 
@@ -123,8 +121,8 @@
                       <a class="nav-link" [ngClass]="groupOptionShow? 'active':''" (click)="OngropOption()">Groups</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" [ngClass]="fileoptionshow? 'active':''" (click)="openfileupload()">Choose
-                        File</a>
+                      <a class="nav-link d-flex" [ngClass]="fileoptionshow? 'active':''" (click)="openfileupload()">Choose File<div class="d-none d-md-block"> (.xls,txt,csv)</div>
+                        </a>
                     </li>
 
                   </ul>
@@ -151,7 +149,7 @@
                       test(1)
                     </label>
                   </div>
-                  <div class="uploadFile" *ngIf="fileoptionshow">
+                  <div class="uploadFile ps-md-4 pt-md-2 pb-md-3 pt-2 pb-3" *ngIf="fileoptionshow">
                     <input type="file" (change)="onFileSelected($event)">
                   </div>
                   <div *ngIf="fileoptionshow">
@@ -166,9 +164,9 @@
           <div class="card text-center mt-md-4 mt-4 subTable3" [ngClass]="show2? 'maxwidth2': 'minwidth2'">
             <div class="card-header d-flex fw-bold" (click)="showOption2()">
 
-              <i class="bi bi-list"></i>
+              <i class="bi bi-list px-md-2 px-2"></i>
               <div class="mx-md-1">Select Chatboat</div>
-              <div class="ps-5 mx-3" (click)="showOption"><i class="bi bi-box-arrow-down"></i></div>
+              <div class="ps-5 ps-md-5 ms-md-4" (click)="showOption"><a><i class="bi bi-box-arrow-down"></i></a></div>
             </div>
             <div class="card-body chatboat" *ngIf="show2">
               <select class="form-select" formControlName="sender" aria-label="Default select example">
@@ -184,9 +182,9 @@
           <div class="card text-center mt-md-4 mt-4 subTable4" [ngClass]="mediaShow? 'maxheigth': 'minheigth'">
             <div class="card-header d-flex fw-bold">
 
-              <i class="bi bi-list"></i>
+              <i class="bi bi-list px-md-2 px-2"></i>
               <div class="mx-md-1">Select Media</div>
-              <div (click)="showOptionMedia()" class="ps-5 mx-4"><i class="bi bi-box-arrow-down"></i></div>
+              <div (click)="showOptionMedia()" class="ps-5 mx-4 ps-md-5 ms-md-5"><a><i class="bi bi-box-arrow-down"></i></a></div>
             </div>
             <div class="card-body mt-md-1 col-md-11 mx-md-3">
 
@@ -208,29 +206,27 @@
                     <!-- <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> -->
                     <select class="form-select col-md-12" (change)="onOptionImageSelected($event)"
                       aria-label="Default select example">
-                      <option value="" selected>Open this select menu</option>
+                      <option value="" selected>Select Image</option>
                       <option value="image1.jpg">Image1</option>
                       <option value="image2.jpg">Image2</option>
                       <option value="img3.jpg">Image3</option>
 
                     </select>
-                    <div class="mt-md-3 ms-md-3">
+                    <div class="mt-md-3 ms-md-3" *ngIf="Imageavalable">
                       <img [src]="selectedImage" width="120rem">
                     </div>
                   </div>
 
-                  <div *ngIf="mdediaVideoshow">
-                    <div class="form-check me-md-5">
+                  <div *ngIf="mdediaVideoshow" class="form-check p-0">
                       <!-- <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> -->
                       <select class="form-select col-md-12" (change)="onOptionVideoSelected($event)"
                         aria-label="Default select example">
-                        <option value="" selected>Open this select menu</option>
+                        <option value="" selected>Select Video</option>
                         <option value="movie.mp4">Video1</option>
                         <option value="movie2.mp4">Video2</option>
                         <option value="movie3.mp4">Video3</option>
                       </select>
-                    </div>
-                    <div class="mt-3" *ngIf="videoAvalable">
+                    <div class="mt-2" *ngIf="videoAvalable">
                       <video controls [src]="selectedVideo" width="150rem"></video>
                     </div>
                   </div>
@@ -240,10 +236,6 @@
 
           </div>
         </div>
-
-
-
-
       </div>
 
     </form>

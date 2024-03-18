@@ -19,8 +19,7 @@ export class ReportComponent implements OnInit {
   constructor(private reportService: ReposrtService) {}
 
   ngOnInit() {
-    // this.ArrayReport=JSON.parse(localStorage.getItem('report') || '');
-    // console.log('report',this.ArrayReport);
+
     this.getReportData();
     this.reportService.getReportAPI();
   }
@@ -46,16 +45,6 @@ export class ReportComponent implements OnInit {
 
   showTable: boolean = false;
   hideTable: boolean = true;
-
-  // OnshowSubTable(){
-  //   this.showTable=true;
-  //   this.hideTable=false
-
-  // }
-  // OnBackTable(){
-  //   this.showTable=false;
-  //   this.hideTable=true;
-  // }
 
   toggleVisibility(item: number | null) {
     if (item) {

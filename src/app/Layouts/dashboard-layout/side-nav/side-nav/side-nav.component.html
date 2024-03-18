@@ -57,16 +57,16 @@
      
 
                 <div class="thimdark mt-3" [class.d-flex]="show">
-                    <div class="form-check ps-0">
+                    <div class="form-check ps-0" (click)="thimeChange(false)">
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                         <label class="form-check-label" for="flexRadioDefault1">
-                            <div  (click)="thimeChange(false)"><i class="bi bi-sun me-1"></i><span *ngIf="show">Bright</span> </div>
+                            <div><i class="bi bi-sun me-1"></i><span *ngIf="show">Bright</span> </div>
                         </label>
                       </div>
-                      <div class="form-check ps-1">
+                      <div class="form-check ps-1" (click)="thimeChange(true)" >
                         <input class="form-check-input"  type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
                         <label class="form-check-label" for="flexRadioDefault2">
-                          <div  (click)="thimeChange(true)" ><i class="bi bi-moon fa-xs me-1"></i> <span *ngIf="show">Dark</span></div>  
+                          <div  ><i class="bi bi-moon fa-xs me-1"></i> <span *ngIf="show">Dark</span></div>  
                         </label>
                       </div>               
                   </div>

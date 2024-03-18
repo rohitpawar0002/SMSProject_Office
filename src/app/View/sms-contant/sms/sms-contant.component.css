@@ -22,6 +22,9 @@
             box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
             font-size: 14px;
         }
+        .subTable a{
+            cursor: pointer;
+        }
         .subTable3{
             height: 10rem;
             margin-left:2vw;
@@ -29,10 +32,13 @@
             box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
             font-size: 14px;
             }
+            .subTable3 a{
+                cursor: pointer;
+            }
                 
             .insidecard{
-                margin-right: -1rem;
-                margin-left: -1rem;
+                margin-right: -0.9rem;
+                margin-left: -1.4rem;
                 cursor: pointer;
             }  
             .insidecard2{
@@ -43,34 +49,32 @@
                 height: 10rem;
                 margin-left:2vw;
                 margin-right:2vw;
+                font-size: 14px;
                 box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+            }
+            .subTable4 a{
+                cursor: pointer;
+            }
+            .alert1{   
+            width:78.3vw ;         
             }
 }
 
 .alert1{
    
-    /* width:73vw ; */
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     font-size: 14px;
 }
 .alert{
     background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
 }
-/* .container{
-margin-left:1rem;
-} */
+
 .maxMain{
     width: 96vw;
 }
 .minMaim{
 width: 83vw;
 }
-
-
-
-
-
-
 hr{
    margin-left:-2rem;
    margin-right: -2rem;
@@ -79,15 +83,7 @@ hr{
     margin-left:8rem;
     margin-bottom: -3rem;
     margin-top:1rem;
-
 }
-
-
-/* .badge3 span{
-    margin-left: 32rem;
-    padding: 0.4rem;
-
-} */
 .btnConfirm{
     margin-left:30rem;
     font-size: 14px;
@@ -98,14 +94,10 @@ hr{
     font-size: 14px;
 
 }
-/* .row{
-    margin-left: 2rem;
-} */
+
 .bigbox{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     font-size: 14px;
-    /* left: 2vw; */
-
 }
 select{
     font-size: 14px;
@@ -127,18 +119,8 @@ select{
     height: 17rem;
 }
 .minheigth{
-    height: 2.6rem;
+    height: 2.3rem;
 }
-/* .card-header{
-    background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);    
-
-} */
-.uploadFile{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
-}
-
 .darkcolor{
     background-color: #343a40;
   }
@@ -205,9 +187,8 @@ select{
     margin-left: -0.8rem;
     margin-right: -1rem;
 
-
   }
-  .brightcolor .card-heade{
+  .brightcolor .card-header{
     background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);    
 
   }
