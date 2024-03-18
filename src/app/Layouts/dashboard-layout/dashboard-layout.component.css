@@ -1,4 +1,3 @@
-@media only screen and (min-width: 768px) {
   .routerOutlet {
     float: left;
     overflow-y: auto;
@@ -10,6 +9,6 @@
   .minwidth {
     width: 100vw;
   }
-}
+
 
 
