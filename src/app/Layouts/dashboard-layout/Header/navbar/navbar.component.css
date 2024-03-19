@@ -64,6 +64,9 @@
   margin-top: 0.6rem;
   padding-right: 1.6rem;
 }
+.loginicon{
+  margin-top: 0.5rem;
+} 
 }
 .supportIconItems {
   font-size: 14px;
@@ -92,9 +95,7 @@ a{
 .personlogo {
   font-size: 20px;
 }
-.loginicon{
-  padding-top: 0.7rem;
-} 
+
 /* .msgCountBadge{
     position: absolute;
     margin-left: 0.5rem;

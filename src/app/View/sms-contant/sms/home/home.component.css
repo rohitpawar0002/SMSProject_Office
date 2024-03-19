@@ -5,10 +5,13 @@ img{
  .minwidth{
     width: 85vw; 
  }
+
+
  .maxminwidth img{
     width: 96vw;
  }
     
+ 
     .maintext {
         position: absolute;
         top: 50%;
