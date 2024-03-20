@@ -9,7 +9,7 @@ import { SidenavService } from 'src/app/Services/sidenav.service';
   styleUrls: ['./side-nav.component.css'],
 })
 export class SideNavComponent implements OnInit {
-  thimShow: boolean = true;
+  themeShow: boolean = true;
 
   constructor(private sidenavService: SidenavService,private showthimeService:ShowThimeService) {}
 
@@ -24,11 +24,11 @@ export class SideNavComponent implements OnInit {
     })
   }
 
-  thimeChange(sh:any) {
+  themeChange(sh:any) {
     
-    this.thimShow = sh;
-    console.log(this.thimShow);
-    this.showthimeService.showThime.next(this.thimShow=sh);
+    this.themeShow = sh;
+    console.log(this.themeShow);
+    this.showthimeService.showTheme.next(this.themeShow=sh);
 
   }
 

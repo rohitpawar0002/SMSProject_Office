@@ -6,11 +6,11 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class ShowThimeService {
 
-  showThime: BehaviorSubject<boolean>;
-  showThime$: Observable<boolean>;
+  showTheme: BehaviorSubject<boolean>;
+  showTheme$: Observable<boolean>;
 
   constructor() { 
-    this.showThime = new BehaviorSubject<boolean>(true);
-    this.showThime$ = this.showThime.asObservable();
+    this.showTheme = new BehaviorSubject<boolean>(true);
+    this.showTheme$ = this.showTheme.asObservable();
   }
 }

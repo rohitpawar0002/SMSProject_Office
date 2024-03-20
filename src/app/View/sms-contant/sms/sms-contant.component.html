@@ -1,10 +1,10 @@
-<div [ngClass]="showThim? 'darkcolor':'brightcolor'">
+<div [ngClass]="showThim? 'brightcolor':'darkcolor'">
   <div class="col-md-12" [ngClass]="showMain? 'minMaim':'maxMain'">
     <form class="p-2" [formGroup]="smsForm">
 
       <div class="row">
         <div class="alert alert-primary alert1 w-md-100" role="alert">
-          This is a primary alert—check it out!
+          Last Login: {{datee | date }}
         </div>
         <div class="card col-md-8 bigbox pe-3">
           <div class="card-header fw-bold">
@@ -43,10 +43,10 @@
             </div>
             <div class="d-md-flex d-block ps-md-5 pt-1">
               <div class="d-flex">
-                <div class="badge1 ps-md-4 mx-n3 p-md-2">
+                <div class="badge1 ps-md-5 mx-n3 p-md-2">
                   <span class="badge badge-secondary">Mobile No Count:{{validMobCount}}</span>
                 </div>
-                <div class="badgeinvalidMob p-md-2 px-4 ">
+                <div class="badgeinvalidMob p-md-2 ps-md-4 px-4 ">
                   <span class="badge badge-secondary">Invalid Mobile No Count:{{invalidMobCount}}</span>
                 </div>
               </div>
@@ -73,7 +73,7 @@
                 rows="3"></textarea>
             </div>
             <div class="d-flex ps-md-5">
-              <div class="badge2 ps-md-3 mt-2 ps-4">
+              <div class="badge2 ps-md-4 mt-2 ps-4">
                 <span class="badge badge-secondary">Count:{{textlength}} Text:{{limit}}</span>
               </div>
 

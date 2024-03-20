@@ -49,6 +49,9 @@ span:hover {
   color: blue;
 } */
 
+@media only screen and (min-width: 768px) {
+
+}
 input[type="radio"] {
   display: none;
 }

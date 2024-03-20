@@ -74,7 +74,7 @@ export class SmsContantComponent {
 
     });
 
-    this.showThimeservice.showThime$.subscribe({
+    this.showThimeservice.showTheme$.subscribe({
       next: (res: any) => {
         this.showThim = res;
       }
